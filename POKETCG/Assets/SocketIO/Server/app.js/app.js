@@ -97,10 +97,12 @@ io.on('connection', socket=>{
 
 
 	socket.on('MyCharacter',data=>{
-		console.log(data)
-		key = data['key']
-		socket.broadcast.to(room[key]).emit('OpponentCharacter',data) 
-	})
+        console.log(data)
+        key = data['key']
+        console.log('1')
+        socket.emit('OpponentCharacter',data)
+        //socket.broadcast.to(room[key]).emit('OpponentCharacter',data) 
+    })
 })
 
 
