@@ -47,13 +47,15 @@ public class CardManager : MonoBehaviour
         socket.On("OpponentCard", (SocketIOEvent e) => {
             Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
             ////상대 카드를 딕셔너리로 받아오는거  e에 있음 아마
-            Instantiate(eskill[int.Parse(string.Format("{0}", e.data))]);
+            Instantiate(eskill[int.Parse(string.Format("{0}", e.name))]);
         });
 
         socket.On("OpponentCharacter", (SocketIOEvent e) => {
             Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
+            Debug.Log((int)char.GetNumericValue(e.data[0].ToString()[1]));
+            int a = (int)char.GetNumericValue(e.data[0].ToString()[1]);
             ////상대 캐릭터를 딕셔너리로 받아오는거  e에 있음 아마
-            Instantiate(eneme[int.Parse(string.Format("{0}", e.data))]);
+            Instantiate(eneme[a], battleScene.transform);
         });
         socket.On("OpponentSkill", (SocketIOEvent e) => {
             Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
@@ -119,9 +121,8 @@ public class CardManager : MonoBehaviour
             Dictionary<string, string> MyCharacter = new Dictionary<string, string>();
             MyCharacter["number"] = PlayerPrefs.GetInt("PC").ToString();  //PlayerPrefs.GetInt("PC").ToString(); 이거 캐릭터번호 맞나 -> 맞음
             MyCharacter["key"] = keyidx.ToString();
-            Debug.Log("ch is gone1");
             socket.Emit("MyCharacter", new JSONObject(MyCharacter));
-            Debug.Log("ch is gone2");
+            Reroll();
         }
     }
 
@@ -156,7 +157,8 @@ public class CardManager : MonoBehaviour
             Instantiate(skill[PlayerPrefs.GetInt("PC", 1)], canvas.transform);
             GameObject a = Instantiate(pc[PlayerPrefs.GetInt("PC", 1)], battleScene.transform);
         }
-        Reroll();
+        if(!isMulti)
+            Reroll();
     }
     public void SendSkill(string a)
     {
