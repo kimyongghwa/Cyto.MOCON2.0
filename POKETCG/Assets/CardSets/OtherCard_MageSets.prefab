@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4326123426209405396}
   - component: {fileID: 3404570986978135231}
   m_Layer: 5
-  m_Name: Takyuk
+  m_Name: TakyukE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 3154761404010035299}
   - component: {fileID: 3154761404010035300}
   m_Layer: 5
-  m_Name: fireball
+  m_Name: fireballE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -768,7 +768,7 @@ GameObject:
   - component: {fileID: 3154761404225884854}
   - component: {fileID: 3154761404225884855}
   m_Layer: 5
-  m_Name: selfHill
+  m_Name: selfHillE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

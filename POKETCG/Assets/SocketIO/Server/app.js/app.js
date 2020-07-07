@@ -7,7 +7,7 @@ var io = require('socket.io')({
 io.attach(4445);
 console.log('SERVER ON')
 let room = ['room1','room2','room3','room4','room5','room6','room7','room8','room9','room10'];
-let CKroom = [0,0,0,0,0,0,0,0,0,0];	
+let CK = [0,0,0,0,0,0,0,0,0,0];	
 let key=0
 
 // var userlist = { room에서 이상이 생길 때 socket.sid랑 같이 고쳐볼 수도 있음

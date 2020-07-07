@@ -45,7 +45,6 @@ public class CardManager : MonoBehaviour
         socket.On("OpponentCard", (SocketIOEvent e) => {
             Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
             ////상대 카드를 딕셔너리로 받아오는거  e에 있음 아마
-            Instantiate(eskill[int.Parse(string.Format("{0}", e.name))]);
         });
 
         socket.On("OpponentCharacter", (SocketIOEvent e) => {
@@ -54,11 +53,18 @@ public class CardManager : MonoBehaviour
             int a = (int)char.GetNumericValue(e.data[0].ToString()[1]);
             ////상대 캐릭터를 딕셔너리로 받아오는거  e에 있음 아마
             Instantiate(eneme[a], battleScene.transform);
+            Instantiate(eskill[a], canvas.transform);
         });
         socket.On("OpponentSkill", (SocketIOEvent e) => {
-            Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
+            Debug.Log(string.Format(e.data[0].ToString()));
+            String a = string.Format(e.data[0].ToString());
+            a = a.Replace('"', ' ');
+            a = a.Trim();
+            Debug.Log(a);
+            Debug.Log("abc");
+            Debug.Log(GameObject.Find(a));
             ////상대 캐릭터를 딕셔너리로 받아오는거  e에 있음 아마
-            BattleManager.Instance.EnemeCard = GameObject.Find(string.Format("{0}", e.data)).GetComponent<CardInfo>();
+            BattleManager.Instance.EnemeCard = GameObject.Find(a).GetComponent<CardInfo>();
         });
         socket.On("OpponentCheck", (SocketIOEvent e) => {
             Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
@@ -115,14 +121,6 @@ public class CardManager : MonoBehaviour
         Debug.Log("adsf");
         key["key"] = keyidx.ToString();
         Debug.Log(e.name + "||||" + e.data);
-        if (isMulti) // 멀티일 경우 보내라.
-        {
-            Dictionary<string, string> MyCharacter = new Dictionary<string, string>();
-            MyCharacter["number"] = PlayerPrefs.GetInt("PC").ToString();
-            MyCharacter["key"] = keyidx.ToString();
-            socket.Emit("MyCharacter", new JSONObject(MyCharacter));
-            Reroll();
-        }
     }
 
 
@@ -152,6 +150,14 @@ public class CardManager : MonoBehaviour
     }
     private void Start()
     {
+        if (isMulti) // 멀티일 경우 보내라.
+        {
+            Dictionary<string, string> MyCharacter = new Dictionary<string, string>();
+            MyCharacter["number"] = PlayerPrefs.GetInt("PC").ToString();
+            MyCharacter["key"] = keyidx.ToString();
+            socket.Emit("MyCharacter", new JSONObject(MyCharacter));
+            Reroll();
+        }
         if (!isAi && !isMultiEneme)
         {
             canvas = GameObject.Find("Canvas");
@@ -164,7 +170,7 @@ public class CardManager : MonoBehaviour
     public void SendSkill(string a)
     {
         Dictionary<string, string> MySkill = new Dictionary<string, string>();
-        MySkill["number"] = a; 
+        MySkill["number"] = a+"E"; 
         MySkill["key"] = keyidx.ToString();
         socket.Emit("MySkill", new JSONObject(MySkill));
     }
@@ -232,6 +238,13 @@ public class CardManager : MonoBehaviour
             if (!isChecked)
             {
                 isChecked = true;
+                SendCheck();
+                if (isEnemeChecked && isChecked)
+                {
+                    isEnemeChecked = false;
+                    isChecked = false;
+                    Reroll();
+                }
             }
 
 

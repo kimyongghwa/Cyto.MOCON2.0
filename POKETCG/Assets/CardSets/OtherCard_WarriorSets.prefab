@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 1624613843289308976}
   - component: {fileID: 1624613843289308979}
   m_Layer: 5
-  m_Name: KangTa
+  m_Name: KangTaE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -784,7 +784,7 @@ GameObject:
   - component: {fileID: 1624613843455035374}
   - component: {fileID: 1624613843455035375}
   m_Layer: 5
-  m_Name: Guard and Atk
+  m_Name: Guard and AtkE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1006,7 +1006,7 @@ GameObject:
   - component: {fileID: 1624613843455371782}
   - component: {fileID: 1624613843455371783}
   m_Layer: 5
-  m_Name: Guard
+  m_Name: GuardE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
