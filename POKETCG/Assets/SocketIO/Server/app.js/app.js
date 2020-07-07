@@ -92,17 +92,26 @@ io.on('connection', socket=>{
 	socket.on('MyCard',data=>{
 		console.log(data)
 		key = data['key']
-		socket.broadcast.to(room[key]).emit('OpponentCard',data) 
+		socket.emit('OpponentCard',data)
+		//socket.broadcast.to(room[key]).emit('OpponentCard',data) 
 	})
 
 
 	socket.on('MyCharacter',data=>{
-        console.log(data)
-        key = data['key']
-        console.log('1')
-        socket.emit('OpponentCharacter',data)
-        //socket.broadcast.to(room[key]).emit('OpponentCharacter',data) 
-    })
+		console.log(data)
+		key = data['key']
+		console.log('MyCharacter')
+		socket.emit('OpponentCharacter',data)
+		//socket.broadcast.to(room[key]).emit('OpponentCharacter',data) 
+	})
+
+	socket.on('MySkill',data=>{
+		console.log(data)
+		key = data['key']
+		console.log('MySkill')
+		socket.emit('OpponentSkill',data)
+		//socket.broadcast.to(room[key]).emit('OpponentSkill',data) 
+	})
 })
 
 

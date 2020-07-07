@@ -30,7 +30,6 @@ public class CardManager : MonoBehaviour
 
     private SocketIOComponent socket;
 
-    Dictionary<string, string> testdata = new Dictionary<string, string>();
 
 
 
