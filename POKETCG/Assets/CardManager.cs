@@ -24,7 +24,7 @@ public class CardManager : MonoBehaviour
     public int[] CardNum = new int[5];
     public Animator[] animator = new Animator[4];
 
-    public int keyidx = 0;
+    public int keyidx;
     Dictionary<string, string> key = new Dictionary<string, string>();
     Dictionary<string, string> sid = new Dictionary<string, string>();
 
@@ -41,8 +41,6 @@ public class CardManager : MonoBehaviour
         socket.On("open", OnSocketOpen);
 
         socket.On("joinRoom", joinRoom);
-
-
 
         socket.On("OpponentCard", (SocketIOEvent e) => {
             Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
@@ -108,18 +106,19 @@ public class CardManager : MonoBehaviour
     {
         Debug.Log("updated socket id " + socket.sid);
         sid["sid"] = socket.sid;
-        sid["key"] = keyidx.ToString();
         socket.Emit("joinRoom", new JSONObject(sid));
+
     }
 
     public void joinRoom(SocketIOEvent e)
     {
         Debug.Log("adsf");
+        key["key"] = keyidx.ToString();
         Debug.Log(e.name + "||||" + e.data);
         if (isMulti) // 멀티일 경우 보내라.
         {
             Dictionary<string, string> MyCharacter = new Dictionary<string, string>();
-            MyCharacter["number"] = PlayerPrefs.GetInt("PC").ToString();  //PlayerPrefs.GetInt("PC").ToString(); 이거 캐릭터번호 맞나 -> 맞음
+            MyCharacter["number"] = PlayerPrefs.GetInt("PC").ToString();
             MyCharacter["key"] = keyidx.ToString();
             socket.Emit("MyCharacter", new JSONObject(MyCharacter));
             Reroll();
@@ -135,6 +134,8 @@ public class CardManager : MonoBehaviour
 
     public void Close(SocketIOEvent e)
     {
+        key["id"] = socket.sid;
+        socket.Emit("leaveRoom", new JSONObject(key));
         Debug.Log("SocketIO Close received: " + e.name + " " + e.data);
     }
 
@@ -163,14 +164,14 @@ public class CardManager : MonoBehaviour
     public void SendSkill(string a)
     {
         Dictionary<string, string> MySkill = new Dictionary<string, string>();
-        MySkill["number"] = a;  //PlayerPrefs.GetInt("PC").ToString(); 이거 캐릭터번호 맞나
+        MySkill["number"] = a; 
         MySkill["key"] = keyidx.ToString();
         socket.Emit("MySkill", new JSONObject(MySkill));
     }
     public void SendCheck()
     {
         Dictionary<string, string> MyCheck = new Dictionary<string, string>();
-        MyCheck["checking"] = "true";  //PlayerPrefs.GetInt("PC").ToString(); 이거 캐릭터번호 맞나
+        MyCheck["checking"] = "true";  
         MyCheck["key"] = keyidx.ToString();
         socket.Emit("MyCheck", new JSONObject(MyCheck));
     }
