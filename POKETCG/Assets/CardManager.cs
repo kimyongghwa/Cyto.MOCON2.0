@@ -62,12 +62,16 @@ public class CardManager : MonoBehaviour
         });
 
         socket.On("OpponentCharacter", (SocketIOEvent e) => {
-            Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
-            Debug.Log((int)char.GetNumericValue(e.data[0].ToString()[1]));
-            int a = (int)char.GetNumericValue(e.data[0].ToString()[1]);
-            //상대 카드를 딕셔너리로 받아옴
-            Instantiate(eneme[a], battleScene.transform);
-            Instantiate(eskill[a], canvas.transform);
+            if (!isMultiEneme)
+            {
+                Debug.Log(this.gameObject.name);
+                Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
+                Debug.Log((int)char.GetNumericValue(e.data[0].ToString()[1]));
+                int a = (int)char.GetNumericValue(e.data[0].ToString()[1]);
+                //상대 카드를 딕셔너리로 받아옴
+                Instantiate(eneme[a], battleScene.transform);
+                Instantiate(eskill[a], canvas.transform);
+            }
         });
 
         socket.On("OpponentSkill", (SocketIOEvent e) => {
@@ -166,6 +170,8 @@ public class CardManager : MonoBehaviour
 
     private void Awake()
     {
+        keyidx = int.Parse(PlayerPrefs.GetString("key"));
+        Debug.Log(keyidx);
         if (isMulti && !isMultiEneme)
         {
             StartServer();
@@ -179,7 +185,7 @@ public class CardManager : MonoBehaviour
     }
     private void Start()
     {
-        if (isMulti) // 멀티일 경우 보내라.
+        if (isMulti && !isMultiEneme) // 멀티일 경우 보내라.
         {
             Dictionary<string, string> MyCharacter = new Dictionary<string, string>();
             MyCharacter["number"] = PlayerPrefs.GetInt("PC").ToString();

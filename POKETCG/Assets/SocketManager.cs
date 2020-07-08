@@ -38,6 +38,7 @@ public class SocketManager : MonoBehaviour
     {
         sid["sid"] = socket.sid;
         socket.Emit("joinRoom", new JSONObject(sid));
+        StartCoroutine("LoadSceneCoroutine");
     }
     public void joinRoom(SocketIOEvent e)
     {
@@ -63,5 +64,9 @@ public class SocketManager : MonoBehaviour
         socket.Emit("leaveRoom", new JSONObject(key));
         Debug.Log("SocketIO Close received: " + e.name + " " + e.data);
     }
-
+    IEnumerator LoadSceneCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(1);
+    }
 }
