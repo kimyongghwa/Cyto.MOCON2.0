@@ -56,6 +56,10 @@ io.on('connection', socket=>{
 			if(CK[i]!=2){
 				key=i
 				CK[key]+=1
+				if(CK[i]==2){
+					console.log('StartCyto key : '+key)
+					io.to(room[key]).emit('StartCyto')
+				}
 				break
 			}
 		}
@@ -78,6 +82,7 @@ io.on('connection', socket=>{
 		keydata = data['key']
 		id = data['id']
 		console.log(data)
+		CK[keydata]-=1
 		socket.leave(room[keydata], () => {
 			console.log(id+' leave ' + room[keydata]);
 			//io.to(room[key]).emit('leaveRoom', {'key':key});

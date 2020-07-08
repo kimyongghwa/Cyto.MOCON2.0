@@ -25,11 +25,12 @@ public class CardManager : MonoBehaviour
     public int[] CardNum = new int[5];
     public Animator[] animator = new Animator[4];
 
-    public int keyidx;
-    Dictionary<string, string> key = new Dictionary<string, string>();
-    Dictionary<string, string> sid = new Dictionary<string, string>();
 
-    private SocketIOComponent socket;
+    private int keyidx; //room 번호를 서버로부터 받아서 저장할 변수
+    Dictionary<string, string> key = new Dictionary<string, string>(); //key 딕셔너리
+    Dictionary<string, string> sid = new Dictionary<string, string>(); //socket.sid 딕셔너리
+
+    private SocketIOComponent socket; //소켓 선언
 
 
 
@@ -45,7 +46,7 @@ public class CardManager : MonoBehaviour
 
         socket.On("OpponentCard", (SocketIOEvent e) => {
             Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
-            ////상대 카드를 딕셔너리로 받아오는거  e에 있음 아마
+            //상대 카드를 딕셔너리로 받아옴
             for (int i = 1; i < 5; i++)
             {
                 CardNum[i] = 0;
@@ -65,10 +66,11 @@ public class CardManager : MonoBehaviour
             Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
             Debug.Log((int)char.GetNumericValue(e.data[0].ToString()[1]));
             int a = (int)char.GetNumericValue(e.data[0].ToString()[1]);
-            ////상대 캐릭터를 딕셔너리로 받아오는거  e에 있음 아마
+            //상대 카드를 딕셔너리로 받아옴
             Instantiate(eneme[a], battleScene.transform);
             Instantiate(eskill[a], canvas.transform);
         });
+
         socket.On("OpponentSkill", (SocketIOEvent e) => {
             Debug.Log(string.Format(e.data[0].ToString()));
             String a = string.Format(e.data[0].ToString()); 
@@ -77,12 +79,13 @@ public class CardManager : MonoBehaviour
             Debug.Log(a);
             Debug.Log("abc");
             Debug.Log(GameObject.Find(a));
-            ////상대 캐릭터를 딕셔너리로 받아오는거  e에 있음 아마
+            //상대 카드를 딕셔너리로 받아옴
             BattleManager.Instance.EnemeCard = GameObject.Find(a).GetComponent<CardInfo>();
         });
+
         socket.On("OpponentCheck", (SocketIOEvent e) => {
             Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
-            ////상대 캐릭터를 딕셔너리로 받아오는거  e에 있음 아마
+            //상대 카드를 딕셔너리로 받아옴
             isEnemeChecked = true;
             if (isEnemeChecked && isChecked)
             {
@@ -91,6 +94,7 @@ public class CardManager : MonoBehaviour
                 Reroll();
             }
         });
+
 
         socket.On("error", Error);
         socket.On("close", Close);
@@ -132,9 +136,17 @@ public class CardManager : MonoBehaviour
 
     public void joinRoom(SocketIOEvent e)
     {
-        Debug.Log("adsf");
+        //joinRoom이 발생하면 room 번호를 받고 keyidx에 room번호를 넣는다 (넣어줘) keyidx에 x 넣어주삼
+        //e.data {'key' : x}
+        //e.data {'key' : x}
+        //e.data {'key' : x}
+        //e.data {'key' : x}
+        //e.data {'key' : x}
+        //e.data {'key' : x}
+        //e.data {'key' : x}
+
         key["key"] = keyidx.ToString();
-        Debug.Log(e.name + "||||" + e.data);
+        Debug.Log("joinRoom " +"||" + e.data);
     }
 
 
@@ -146,6 +158,7 @@ public class CardManager : MonoBehaviour
 
     public void Close(SocketIOEvent e)
     {
+        //소켓이 꺼지면 Close 반환 -> key딕셔너리에 socket.sid를 넣어서 보내서 room에서 뺀다
         key["id"] = socket.sid;
         socket.Emit("leaveRoom", new JSONObject(key));
         Debug.Log("SocketIO Close received: " + e.name + " " + e.data);
