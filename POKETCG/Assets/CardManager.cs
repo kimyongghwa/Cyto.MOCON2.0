@@ -46,7 +46,7 @@ public class CardManager : MonoBehaviour
 
         socket.On("OpponentCard", (SocketIOEvent e) => {
             Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
-            //상대 카드를 딕셔너리로 받아옴
+            Debug.Log("organic");
             for (int i = 1; i < 5; i++)
             {
                 e_cardManager.CardNum[i] = 0;
@@ -57,8 +57,7 @@ public class CardManager : MonoBehaviour
                 e_cardManager.haveCard[i] = a;
                 e_cardManager.CardNum[a]++;
                 e_cardManager.animator[i].SetInteger("CardType", a);
-
-
+                Debug.Log("card a :" + a + " num :" + i);
             }
         });
 
@@ -126,14 +125,7 @@ public class CardManager : MonoBehaviour
     //    socket.Emit("beep");
     //}
 
-    public void OnSocketOpen(SocketIOEvent ev)
-    {
-        Debug.Log("updated socket id " + socket.sid);
-        sid["sid"] = socket.sid;
-        socket.Emit("joinRoom", new JSONObject(sid));
-
-    }
-
+    public void OnSocketOpen(SocketIOEvent ev) { }
     public void joinRoom(SocketIOEvent e)
     {
         //joinRoom이 발생하면 room 번호를 받고 keyidx에 room번호를 넣는다 (넣어줘) keyidx에 x 넣어주삼
@@ -144,7 +136,11 @@ public class CardManager : MonoBehaviour
         //e.data {'key' : x}
         //e.data {'key' : x}
         //e.data {'key' : x}
-
+        String a = string.Format(e.data[0].ToString());
+        a = a.Replace('"', ' ');
+        a = a.Trim();
+        keyidx = int.Parse(a);
+        Debug.Log(keyidx);
         key["key"] = keyidx.ToString();
         Debug.Log("joinRoom " +"||" + e.data);
     }
@@ -163,12 +159,18 @@ public class CardManager : MonoBehaviour
         socket.Emit("leaveRoom", new JSONObject(key));
         Debug.Log("SocketIO Close received: " + e.name + " " + e.data);
     }
-
+    public void CloseClick()
+    {
+        socket.Close();
+    }
 
     private void Awake()
     {
         if (isMulti && !isMultiEneme)
+        {
             StartServer();
+            key["key"] = PlayerPrefs.GetString("key");
+        }
         else if (isMultiEneme)
         {
             GameObject go = GameObject.Find("SocketIO");
@@ -222,7 +224,7 @@ public class CardManager : MonoBehaviour
             CardNum[haveCard[i]]++;
             StartCoroutine("RerollCoroutine", i);
         }
-        if (isMulti) // 멀티인데 내 캐릭터일 경우 정보를 서버로 보냄 (카드 뭐나왔는지 보내야됨 ^^)
+        if (isMulti && !isMultiEneme) // 멀티인데 내 캐릭터일 경우 정보를 서버로 보냄 (카드 뭐나왔는지 보내야됨 ^^)
         {
             Debug.Log("Reroll");
             Dictionary<string, string> MyCard = new Dictionary<string, string>();

@@ -927,6 +927,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 692251646}
+        m_MethodName: CloseClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 802046561}
         m_MethodName: Exixit
         m_Mode: 1
@@ -1269,6 +1280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChecked: 0
   isEnemeChecked: 0
+  e_cardManager: {fileID: 784065041}
   pc:
   - {fileID: 0}
   - {fileID: 3536590953862114427, guid: 552d4ee69c69f8e4e8f332536854fcae, type: 3}
@@ -1299,7 +1311,6 @@ MonoBehaviour:
   - {fileID: 578292848}
   - {fileID: 1677790115}
   - {fileID: 481853849}
-  keyidx: 0
 --- !u!4 &692251647
 Transform:
   m_ObjectHideFlags: 0
@@ -1606,6 +1617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChecked: 0
   isEnemeChecked: 0
+  e_cardManager: {fileID: 0}
   pc:
   - {fileID: 0}
   - {fileID: 0}
@@ -1626,7 +1638,7 @@ MonoBehaviour:
   de: {fileID: 0}
   battleScene: {fileID: 0}
   isAi: 0
-  isMulti: 0
+  isMulti: 1
   isMultiEneme: 1
   haveCard: 00000000000000000000000000000000
   ai: {fileID: 3154761404480282881}
@@ -1636,7 +1648,6 @@ MonoBehaviour:
   - {fileID: 856619037}
   - {fileID: 976330888}
   - {fileID: 2008805517}
-  keyidx: 0
 --- !u!4 &784065042
 Transform:
   m_ObjectHideFlags: 0
@@ -2352,6 +2363,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 692251646}
+        m_MethodName: CloseClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 802046561}
         m_MethodName: goMain
         m_Mode: 1

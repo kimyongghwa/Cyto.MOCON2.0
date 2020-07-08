@@ -3,6 +3,7 @@ using UnityEngine;
 using SocketIO;
 using System; //using System;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class SocketManager : MonoBehaviour
 {
@@ -20,25 +21,33 @@ public class SocketManager : MonoBehaviour
         socket.On("open", OnSocketOpen);
 
         socket.On("joinRoom", joinRoom);
-
+        socket.On("CytoStart", cytoStart);
         socket.On("error", Error);
         socket.On("close", Close);
 
         //StartCoroutine("BeepBoop");
     }
-
+    public void cytoStart(SocketIOEvent e)
+    {
+        SceneManager.LoadScene(1);
+    }
     public void OnSocketOpen(SocketIOEvent ev)
     {
-        Debug.Log("updated socket id " + socket.sid);
+    }
+    public void GameStart()
+    {
         sid["sid"] = socket.sid;
         socket.Emit("joinRoom", new JSONObject(sid));
     }
-
     public void joinRoom(SocketIOEvent e)
     {
-        Debug.Log("adsf");
+        String a = string.Format(e.data[0].ToString());
+        a = a.Replace('"', ' ');
+        a = a.Trim();
+        keyidx = int.Parse(a);
         key["key"] = keyidx.ToString();
-        Debug.Log(e.name + "||||" + e.data);
+        PlayerPrefs.SetString("key", key["key"]);
+        Debug.Log("joinRoom " + "||" + e.data);
     }
 
 
