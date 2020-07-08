@@ -8,6 +8,7 @@ public class CardManager : MonoBehaviour
 {
     public bool isChecked;
     public bool isEnemeChecked;
+    public CardManager e_cardManager;
     public GameObject[] pc = new GameObject[3];
     public GameObject[] eneme = new GameObject[3];
     public GameObject[] eskill = new GameObject[3];
@@ -45,6 +46,19 @@ public class CardManager : MonoBehaviour
         socket.On("OpponentCard", (SocketIOEvent e) => {
             Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
             ////상대 카드를 딕셔너리로 받아오는거  e에 있음 아마
+            for (int i = 1; i < 5; i++)
+            {
+                CardNum[i] = 0;
+            }
+            for (int i = 0; i<4; i++)
+            {
+                int a = (int)char.GetNumericValue(e.data[i].ToString()[1]);
+                e_cardManager.haveCard[i] = a;
+                e_cardManager.CardNum[a]++;
+                e_cardManager.animator[i].SetInteger("CardType", a);
+
+
+            }
         });
 
         socket.On("OpponentCharacter", (SocketIOEvent e) => {
@@ -57,7 +71,7 @@ public class CardManager : MonoBehaviour
         });
         socket.On("OpponentSkill", (SocketIOEvent e) => {
             Debug.Log(string.Format(e.data[0].ToString()));
-            String a = string.Format(e.data[0].ToString());
+            String a = string.Format(e.data[0].ToString()); 
             a = a.Replace('"', ' ');
             a = a.Trim();
             Debug.Log(a);
@@ -340,5 +354,3 @@ public class CardManager : MonoBehaviour
         p1.transform.localRotation = Quaternion.Euler(0, 360, 0);
     }
 }
-
-
