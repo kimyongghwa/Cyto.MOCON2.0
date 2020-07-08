@@ -48,7 +48,7 @@ public class CardManager : MonoBehaviour
             ////상대 카드를 딕셔너리로 받아오는거  e에 있음 아마
             for (int i = 1; i < 5; i++)
             {
-                CardNum[i] = 0;
+                e_cardManager.CardNum[i] = 0;
             }
             for (int i = 0; i<4; i++)
             {
