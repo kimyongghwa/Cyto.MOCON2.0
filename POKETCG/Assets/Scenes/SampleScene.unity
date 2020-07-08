@@ -1269,7 +1269,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChecked: 0
   isEnemeChecked: 0
-  e_cardManager: {fileID: 784065041}
   pc:
   - {fileID: 0}
   - {fileID: 3536590953862114427, guid: 552d4ee69c69f8e4e8f332536854fcae, type: 3}
@@ -1607,7 +1606,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChecked: 0
   isEnemeChecked: 0
-  e_cardManager: {fileID: 0}
   pc:
   - {fileID: 0}
   - {fileID: 0}
