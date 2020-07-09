@@ -78,16 +78,21 @@ io.on('connection', socket=>{
 	// 	userlist.deleteUser(socket.id)
 	// ])
 
-	socket.on('leaveRoom', data => {
+	socket.on('leaveRoom', data => { //메인화면으로 나가기 버튼
 		keydata = data['key']
 		id = data['id']
 		console.log(data)
 		CK[keydata]-=1
-		socket.leave(room[keydata], () => {
+		socket.leave(room[keydata], () => { //
 			console.log(id+' leave ' + room[keydata]);
+			//상대한테 상대가 떠났습니다 보내야 함 서버가 하는거 맞나?
 			//io.to(room[key]).emit('leaveRoom', {'key':key});
 		});
 	});
+
+	socket.on('EndCyto', data=>{ //게임 승패가 갈린 경우
+
+	})
 
 	socket.on('disconnect', () => {
 		console.log('user disconnected');
@@ -98,8 +103,8 @@ io.on('connection', socket=>{
 		key = data['key']
 		console.log('-------MyCard--------')
 		console.log(data)
-		socket.emit('OpponentCard',data)
-		//socket.broadcast.to(room[key]).emit('OpponentCard',data) 
+		//socket.emit('OpponentCard',data)
+		socket.broadcast.to(room[key]).emit('OpponentCard',data) 
 	})
 
 
@@ -107,23 +112,24 @@ io.on('connection', socket=>{
 		key = data['key']
 		console.log('-----------MyCharacter--------')
 		console.log(data)
-		socket.emit('OpponentCharacter',data)
-		//socket.broadcast.to(room[key]).emit('OpponentCharacter',data) 
+		//socket.emit('OpponentCharacter',data)
+		socket.broadcast.to(room[key]).emit('OpponentCharacter',data) 
 	})
 
 	socket.on('MySkill',data=>{
 		key = data['key']
 		console.log('---------MySkill--------')
 		console.log(data)
-		socket.emit('OpponentSkill',data)
-		//socket.broadcast.to(room[key]).emit('OpponentSkill',data) 
+		//socket.emit('OpponentSkill',data)
+		socket.broadcast.to(room[key]).emit('OpponentSkill',data) 
 	})
-	socket.on('MyCheck',data=>{
+
+	socket.on('MyCheck',data=>{//??
 		key = data['key']
 		console.log('--------MyCheck--------')
 		console.log(data)
-		socket.emit('OpponentCheck',data)
-		//socket.broadcast.to(room[key]).emit('OpponentCheck',data) 
+		//socket.emit('OpponentCheck',data)
+		socket.broadcast.to(room[key]).emit('OpponentCheck',data) 
 	})
 })
 

@@ -101,6 +101,8 @@ public class CardManager : MonoBehaviour
 
         socket.On("error", Error);
         socket.On("close", Close);
+        //socket.On("leaveRoom", leaveRoom);
+
 
         //StartCoroutine("BeepBoop");
     }
@@ -132,14 +134,7 @@ public class CardManager : MonoBehaviour
     public void OnSocketOpen(SocketIOEvent ev) { }
     public void joinRoom(SocketIOEvent e)
     {
-        //joinRoom이 발생하면 room 번호를 받고 keyidx에 room번호를 넣는다 (넣어줘) keyidx에 x 넣어주삼
-        //e.data {'key' : x}
-        //e.data {'key' : x}
-        //e.data {'key' : x}
-        //e.data {'key' : x}
-        //e.data {'key' : x}
-        //e.data {'key' : x}
-        //e.data {'key' : x}
+        //joinRoom이 발생하면 room 번호를 받고 keyidx에 room번호를 넣는다
         String a = string.Format(e.data[0].ToString());
         a = a.Replace('"', ' ');
         a = a.Trim();
@@ -158,14 +153,20 @@ public class CardManager : MonoBehaviour
 
     public void Close(SocketIOEvent e)
     {
-        //소켓이 꺼지면 Close 반환 -> key딕셔너리에 socket.sid를 넣어서 보내서 room에서 뺀다
-        key["id"] = socket.sid;
-        socket.Emit("leaveRoom", new JSONObject(key));
         Debug.Log("SocketIO Close received: " + e.name + " " + e.data);
     }
-    public void CloseClick()
+
+    //public void leaveRoom(SocketIOEvent e)
+    //{
+    //    //게임화면에서 메인화면으로 가면 발동 -> key딕셔너리에 socket.sid를 넣어서 보내서 room에서 뺀다
+    //}
+
+    public void CloseClick() //메인화면으로 나가기 버튼
     {
-        socket.Close();
+        key["id"] = socket.sid;
+        socket.Emit("leaveRoom", new JSONObject(key));
+        Debug.Log("leaveRoom ");
+        Debug.Log("closeclick");
     }
 
     private void Awake()
