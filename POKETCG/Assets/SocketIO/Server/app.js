@@ -8,7 +8,7 @@ io.attach(4445);
 console.log('SERVER ON')
 let room = ['room1','room2','room3','room4','room5','room6','room7','room8','room9','room10'];
 let CK = [0,0,0,0,0,0,0,0,0,0];	
-let key=0
+var key=0
 
 // var userlist = { room에서 이상이 생길 때 socket.sid랑 같이 고쳐볼 수도 있음
 // 	users: [],
@@ -58,11 +58,14 @@ io.on('connection', socket=>{
 				CK[key]+=1
 				if(CK[key]==2){
 					console.log('StartCyto key : '+key)
-					io.to(room[key]).emit('StartCyto')
+					io.sockets.in(room[key]).emit('StartCyto')
 				}
 				break
 			}
 		}
+		console.log(key)
+		console.log(room[key])
+		console.log(CK[key])
 
 	})
 
