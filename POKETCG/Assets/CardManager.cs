@@ -86,6 +86,11 @@ public class CardManager : MonoBehaviour
             BattleManager.Instance.EnemeCard = GameObject.Find(a).GetComponent<CardInfo>();
         });
 
+        socket.On("OpponentLeft", (SocketIOEvent e) =>{
+            Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
+            // 상대가 떠났습니다 하고 메인화면으로 나가기 
+        });
+
         socket.On("OpponentCheck", (SocketIOEvent e) => {
             Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
             //상대 카드를 딕셔너리로 받아옴

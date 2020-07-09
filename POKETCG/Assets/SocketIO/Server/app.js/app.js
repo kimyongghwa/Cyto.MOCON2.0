@@ -82,20 +82,29 @@ io.on('connection', socket=>{
 		keydata = data['key']
 		id = data['id']
 		console.log(data)
-		CK[keydata]-=1
+		CK[keydata]-=2
 		socket.leave(room[keydata], () => { //
 			console.log(id+' leave ' + room[keydata]);
-			//상대한테 상대가 떠났습니다 보내야 함 서버가 하는거 맞나?
+			//상대한테 상대가 떠났습니다 보내야 함 
+			socket.broadcast.to(room[key]).emit('OpponentLeft',data) 
 			//io.to(room[key]).emit('leaveRoom', {'key':key});
 		});
 	});
+	
+
 
 	socket.on('EndCyto', data=>{ //게임 승패가 갈린 경우
-
+		keydata = data['key']
+		id = data['id']
+		console.log(data)
+		CK[keydata]-=1
+		socket.leave(room[keydata], () => { 
+			console.log(id+' leave ' + room[keydata]);
+		});
 	})
 
 	socket.on('disconnect', () => {
-		console.log('user disconnected');
+		console.log('a user disconnected');
 	  });
 	
 
@@ -124,7 +133,7 @@ io.on('connection', socket=>{
 		socket.broadcast.to(room[key]).emit('OpponentSkill',data) 
 	})
 
-	socket.on('MyCheck',data=>{//??
+	socket.on('MyCheck',data=>{
 		key = data['key']
 		console.log('--------MyCheck--------')
 		console.log(data)
