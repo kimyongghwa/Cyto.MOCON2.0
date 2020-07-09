@@ -6,9 +6,8 @@ var io = require('socket.io')({
 
 io.attach(4445);
 console.log('SERVER ON')
-let room = ['room1','room2','room3','room4','room5','room6','room7','room8','room9','room10'];
-let CK = [0,0,0,0,0,0,0,0,0,0];	
-var key=0
+let room = ['room1','room2','room3','room4','room5','room6','room7','room8','room9','room10']
+let CK = [0,0,0,0,0,0,0,0,0,0]
 
 // var userlist = { room에서 이상이 생길 때 socket.sid랑 같이 고쳐볼 수도 있음
 // 	users: [],
@@ -32,6 +31,7 @@ io.on('connection', socket=>{
 	
 	socket.on("joinRoom",data=> {
 		id = data['sid']
+		var key=0
 		// if (userlist.has(id) == -1 && id != '') {
 		// 	userlist.createUser(id)
 		// 	// 앞에서 둘씩 잘라서 room에 넣음
@@ -47,25 +47,28 @@ io.on('connection', socket=>{
 		//console.log(userlist.users[3])
 		// 앞에서 둘씩 잘라서 room에 넣음
 		socket.join(room[key], () => {
+			console.log(key)
 			console.log(id +' join ' + room[key]+' key '+key);
 			//io.to(room[key]).emit('joinRoom',{'key':key}); room 전체
 			//socket.broadcast.to(room[key]).emit('joinRoom',{'key':key}); room에 나 뺀 애들한테
 			socket.emit('joinRoom',{'key':key})
-		});
-		for(var i=0; i<10; i++){
-			if(CK[i]!=2){
-				key=i
-				CK[key]+=1
-				if(CK[key]==2){
-					console.log('StartCyto key : '+key)
-					io.sockets.in(room[key]).emit('StartCyto')
+			for(var i=0; i<10; i++){
+				if(CK[i]!=2){
+					key=i
+					CK[key]+=1
+					if(CK[key]==2){
+						console.log('StartCyto key : '+key)
+						io.sockets.in(room[key]).emit('StartCyto')
+						key++
+					}
+					break
 				}
-				break
 			}
-		}
-		console.log(key)
-		console.log(room[key])
-		console.log(CK[key])
+			console.log(key)
+			console.log(room[key])
+			console.log(CK[key])
+		});
+		
 
 	})
 
@@ -89,7 +92,7 @@ io.on('connection', socket=>{
 		socket.leave(room[keydata], () => { //
 			console.log(id+' leave ' + room[keydata]);
 			//상대한테 상대가 떠났습니다 보내야 함 
-			socket.broadcast.to(room[key]).emit('OpponentLeft',data) 
+			socket.broadcast.to(room[keydata]).emit('OpponentLeft',data) 
 			//io.to(room[key]).emit('leaveRoom', {'key':key});
 		});
 	});
@@ -112,36 +115,36 @@ io.on('connection', socket=>{
 	
 
 	socket.on('MyCard',data=>{
-		key = data['key']
+		keydata = data['key']
 		console.log('-------MyCard--------')
 		console.log(data)
 		//socket.emit('OpponentCard',data)
-		socket.broadcast.to(room[key]).emit('OpponentCard',data) 
+		socket.broadcast.to(room[keydata]).emit('OpponentCard',data) 
 	})
 
 
 	socket.on('MyCharacter',data=>{
-		key = data['key']
+		keydata = data['key']
 		console.log('-----------MyCharacter--------')
 		console.log(data)
 		//socket.emit('OpponentCharacter',data)
-		socket.broadcast.to(room[key]).emit('OpponentCharacter',data) 
+		socket.broadcast.to(room[keydata]).emit('OpponentCharacter',data) 
 	})
 
 	socket.on('MySkill',data=>{
-		key = data['key']
+		keydata = data['key']
 		console.log('---------MySkill--------')
 		console.log(data)
 		//socket.emit('OpponentSkill',data)
-		socket.broadcast.to(room[key]).emit('OpponentSkill',data) 
+		socket.broadcast.to(room[keydata]).emit('OpponentSkill',data) 
 	})
 
 	socket.on('MyCheck',data=>{
-		key = data['key']
+		keydata = data['key']
 		console.log('--------MyCheck--------')
 		console.log(data)
 		//socket.emit('OpponentCheck',data)
-		socket.broadcast.to(room[key]).emit('OpponentCheck',data) 
+		socket.broadcast.to(room[keydata]).emit('OpponentCheck',data) 
 	})
 })
 
