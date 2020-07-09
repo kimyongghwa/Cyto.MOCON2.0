@@ -21,13 +21,13 @@ public class SocketManager : MonoBehaviour
         socket.On("open", OnSocketOpen);
 
         socket.On("joinRoom", joinRoom);
-        socket.On("CytoStart", cytoStart);
+        socket.On("StartCyto", StartCyto);
         socket.On("error", Error);
         socket.On("close", Close);
 
         //StartCoroutine("BeepBoop");
     }
-    public void cytoStart(SocketIOEvent e)
+    public void StartCyto(SocketIOEvent e)
     {
         SceneManager.LoadScene(1);
     }
@@ -38,7 +38,6 @@ public class SocketManager : MonoBehaviour
     {
         sid["sid"] = socket.sid;
         socket.Emit("joinRoom", new JSONObject(sid));
-        StartCoroutine("LoadSceneCoroutine");
     }
     public void joinRoom(SocketIOEvent e)
     {
