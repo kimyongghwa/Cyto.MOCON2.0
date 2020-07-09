@@ -56,7 +56,7 @@ io.on('connection', socket=>{
 			if(CK[i]!=2){
 				key=i
 				CK[key]+=1
-				if(CK[i]==2){
+				if(CK[key]==2){
 					console.log('StartCyto key : '+key)
 					io.to(room[key]).emit('StartCyto')
 				}
