@@ -8,7 +8,7 @@ io.attach(4445);
 console.log('SERVER ON')
 let room = ['room1','room2','room3','room4','room5','room6','room7','room8','room9','room10']
 let CK = [0,0,0,0,0,0,0,0,0,0]
-
+var key=0
 // var userlist = { room에서 이상이 생길 때 socket.sid랑 같이 고쳐볼 수도 있음
 // 	users: [],
 // 	createUser(id) {
@@ -31,7 +31,6 @@ io.on('connection', socket=>{
 	
 	socket.on("joinRoom",data=> {
 		id = data['sid']
-		var key=0
 		// if (userlist.has(id) == -1 && id != '') {
 		// 	userlist.createUser(id)
 		// 	// 앞에서 둘씩 잘라서 room에 넣음
