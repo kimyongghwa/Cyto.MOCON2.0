@@ -343,9 +343,8 @@ public class CardManager : MonoBehaviour
         BattleManager.Instance.EnemeCard = null;
         if (BattleManager.Instance.otherInfo.nowHp <= 0) //승
         {
-            if (!isMulti)
-                de.SetActive(true);
-            else if (isMultiEneme)
+            de.SetActive(true);
+            if (isMulti && !isMultiEneme)
             {
                 key["id"] = socket.sid;
                 socket.Emit("EndCyto", new JSONObject(key));
@@ -354,9 +353,8 @@ public class CardManager : MonoBehaviour
 
         if (BattleManager.Instance.myInfo.nowHp <= 0) //패
         {
-            if (!isMulti)
-                gg.SetActive(true);
-            else if (isMultiEneme)
+            gg.SetActive(true);
+            if (isMulti && !isMultiEneme)
             {
                 key["id"] = socket.sid;
                 socket.Emit("EndCyto", new JSONObject(key));
