@@ -42,7 +42,6 @@ public class CardManager : MonoBehaviour
         GameObject go = GameObject.Find("SocketIO");
         socket = go.GetComponent<SocketIOComponent>();
 
-        socket.On("open", OnSocketOpen);
 
         socket.On("joinRoom", joinRoom);
 
@@ -87,11 +86,6 @@ public class CardManager : MonoBehaviour
             Debug.Log(GameObject.Find(a));
             //상대 카드를 딕셔너리로 받아옴
             BattleManager.Instance.EnemeCard = GameObject.Find(a).GetComponent<CardInfo>();
-        });
-
-        socket.On("OpponentLeft", (SocketIOEvent e) =>{
-            Debug.Log(string.Format("[name: {0}, data: {1}]", e.name, e.data));
-            // 상대가 떠났습니다 하고 메인화면으로 나가기 
         });
 
         socket.On("OpponentCheck", (SocketIOEvent e) => {
@@ -140,7 +134,6 @@ public class CardManager : MonoBehaviour
     //    socket.Emit("beep");
     //}
 
-    public void OnSocketOpen(SocketIOEvent ev) { }
     public void joinRoom(SocketIOEvent e)
     {
         //joinRoom이 발생하면 room 번호를 받고 keyidx에 room번호를 넣는다
@@ -174,8 +167,7 @@ public class CardManager : MonoBehaviour
     {
         key["id"] = socket.sid;
         socket.Emit("leaveRoom", new JSONObject(key));
-        Debug.Log("leaveRoom ");
-        Debug.Log("closeclick");
+        Debug.Log("leaveRoom");
     }
 
     private void Awake()
@@ -349,20 +341,26 @@ public class CardManager : MonoBehaviour
         }
         BattleManager.Instance.Card = null;
         BattleManager.Instance.EnemeCard = null;
-        if (BattleManager.Instance.otherInfo.nowHp <= 0)
+        if (BattleManager.Instance.otherInfo.nowHp <= 0) //승
         {
             if (!isMulti)
                 de.SetActive(true);
             else if (isMultiEneme)
-                socket.Emit("EndCyto");
+            {
+                key["id"] = socket.sid;
+                socket.Emit("EndCyto", new JSONObject(key));
+            }
         }
 
-        if (BattleManager.Instance.myInfo.nowHp <= 0)
+        if (BattleManager.Instance.myInfo.nowHp <= 0) //패
         {
             if (!isMulti)
                 gg.SetActive(true);
             else if (isMultiEneme)
-                socket.Emit("EndCyto");
+            {
+                key["id"] = socket.sid;
+                socket.Emit("EndCyto", new JSONObject(key));
+            }
         }
     }
 
