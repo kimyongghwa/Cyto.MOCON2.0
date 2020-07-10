@@ -69,7 +69,8 @@ public class CardManager : MonoBehaviour
                 Debug.Log((int)char.GetNumericValue(e.data[0].ToString()[1]));
                 int a = (int)char.GetNumericValue(e.data[0].ToString()[1]);
                 //상대 카드를 딕셔너리로 받아옴
-                Instantiate(eneme[a], battleScene.transform);
+                GameObject b = Instantiate(eneme[a], battleScene.transform);
+                BattleManager.Instance.otherInfo = b.GetComponent<PlayerInfo>();
                 Instantiate(eskill[a], canvas.transform);
             }
         });
@@ -99,6 +100,7 @@ public class CardManager : MonoBehaviour
             {
                 isEnemeChecked = false;
                 isChecked = false;
+                DealGyo();
                 Reroll();
             }
         });
@@ -284,7 +286,9 @@ public class CardManager : MonoBehaviour
                 {
                     isEnemeChecked = false;
                     isChecked = false;
+                    DealGyo();
                     Reroll();
+
                 }
             }
 
@@ -344,9 +348,20 @@ public class CardManager : MonoBehaviour
         BattleManager.Instance.Card = null;
         BattleManager.Instance.EnemeCard = null;
         if (BattleManager.Instance.otherInfo.nowHp <= 0)
-            de.SetActive(true);
+        {
+            if (!isMulti)
+                de.SetActive(true);
+            else if (isMultiEneme)
+                socket.Emit("EndCyto");
+        }
+
         if (BattleManager.Instance.myInfo.nowHp <= 0)
-            gg.SetActive(true);
+        {
+            if (!isMulti)
+                gg.SetActive(true);
+            else if (isMultiEneme)
+                socket.Emit("EndCyto");
+        }
     }
 
     IEnumerator RerollCoroutine(int num)

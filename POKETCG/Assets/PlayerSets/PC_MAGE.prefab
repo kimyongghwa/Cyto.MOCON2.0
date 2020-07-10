@@ -116,8 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pc: 1
-  maxHp: 45
-  nowHp: 45
+  maxHp: 25
+  nowHp: 25
   guard: 0
   HpImage: {fileID: 2546124269819046348}
   HpText: {fileID: 2546124270336801330}
