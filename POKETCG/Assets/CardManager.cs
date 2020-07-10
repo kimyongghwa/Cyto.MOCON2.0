@@ -3,9 +3,11 @@ using UnityEngine;
 using SocketIO;
 using System; //using System;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour
 {
+    
     public bool isChecked;
     public bool isEnemeChecked;
     public CardManager e_cardManager;
@@ -108,7 +110,7 @@ public class CardManager : MonoBehaviour
 
         socket.On("error", Error);
         socket.On("close", Close);
-        //socket.On("leaveRoom", leaveRoom);
+        socket.On("OpponentLeft", OpponentLeft);
 
 
         //StartCoroutine("BeepBoop");
@@ -163,10 +165,10 @@ public class CardManager : MonoBehaviour
         Debug.Log("SocketIO Close received: " + e.name + " " + e.data);
     }
 
-    //public void leaveRoom(SocketIOEvent e)
-    //{
-    //    //게임화면에서 메인화면으로 가면 발동 -> key딕셔너리에 socket.sid를 넣어서 보내서 room에서 뺀다
-    //}
+    public void OpponentLeft(SocketIOEvent e)
+    {
+        SceneManager.LoadScene(0);
+    }
 
     public void CloseClick() //메인화면으로 나가기 버튼
     {
