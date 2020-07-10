@@ -3,6 +3,7 @@ using UnityEngine;
 using SocketIO;
 using System; //using System;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour
@@ -26,7 +27,8 @@ public class CardManager : MonoBehaviour
     public AISkill ai;
     public int[] CardNum = new int[5];
     public Animator[] animator = new Animator[4];
-
+    public Image timerImage;
+    float tCount = 5f;
 
     private int keyidx; //room 번호를 서버로부터 받아서 저장할 변수
     Dictionary<string, string> key = new Dictionary<string, string>(); //key 딕셔너리
@@ -392,5 +394,17 @@ public class CardManager : MonoBehaviour
         p1.transform.localRotation = Quaternion.Euler(0, 270, 0);
         yield return new WaitForSeconds(0.03f);
         p1.transform.localRotation = Quaternion.Euler(0, 360, 0);
+    }
+
+    IEnumerator TimerCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        tCount -= 0.1f;
+        timerImage.fillAmount =  tCount / 5.0f;
+        if(tCount <= 0)
+        {
+
+        }
+        StartCoroutine("TimerCoroutine");
     }
 }
