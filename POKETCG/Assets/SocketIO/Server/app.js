@@ -12,7 +12,7 @@ var room = ['room1','room2','room3','room4','room5','room6','room7','room8','roo
 //room에 있는 사람 수
 var CK = [0,0,0,0,0,0,0,0,0,0]
 
-//room이                게임 시작했으면 1            게임 시작하지 않았으면 0
+//room                게임 시작했으면 1            게임 시작하지 않았으면 0
 var playing = [0,0,0,0,0,0,0,0,0,0]
 var key = 0
 
@@ -53,7 +53,7 @@ io.on('connection', socket=>{
 		socket.leave(room[keydata], () => {
 			console.log(id+' leave ' + room[keydata]);
 			//상대한테 상대가 떠났습니다 보내야 함 
-			socket.broadcast.to(room[keydata]).emit('OpponentLeft',data) 
+			socket.broadcast.to(room[keydata]).emit('OpponentLeft') 
 			CK[keydata]-=2
 			playing[keydata]=0
 		});
