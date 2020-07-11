@@ -195,6 +195,7 @@ public class CardManager : MonoBehaviour
             MyCharacter["number"] = PlayerPrefs.GetInt("PC").ToString();
             MyCharacter["key"] = keyidx.ToString();
             socket.Emit("MyCharacter", new JSONObject(MyCharacter));
+            StartCoroutine("TimerCoroutine");
             Reroll();
         }
         if (!isAi && !isMultiEneme)
@@ -403,7 +404,8 @@ public class CardManager : MonoBehaviour
         timerImage.fillAmount =  tCount / 5.0f;
         if(tCount <= 0)
         {
-
+            Click();
+            tCount = 5;
         }
         StartCoroutine("TimerCoroutine");
     }

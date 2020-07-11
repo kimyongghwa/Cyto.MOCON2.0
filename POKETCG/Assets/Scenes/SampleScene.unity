@@ -1300,6 +1300,7 @@ MonoBehaviour:
   - {fileID: 578292848}
   - {fileID: 1677790115}
   - {fileID: 481853849}
+  timerImage: {fileID: 770538363}
 --- !u!4 &692251647
 Transform:
   m_ObjectHideFlags: 0
@@ -1635,13 +1636,13 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 7570342450605539159, guid: 88c40af8470c4714f858dd8bd5cd4360,
     type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &770538364
@@ -1714,6 +1715,7 @@ MonoBehaviour:
   - {fileID: 856619037}
   - {fileID: 976330888}
   - {fileID: 2008805517}
+  timerImage: {fileID: 0}
 --- !u!4 &784065042
 Transform:
   m_ObjectHideFlags: 0
@@ -2794,7 +2796,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 3
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
