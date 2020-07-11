@@ -30,6 +30,7 @@ io.on('connection', socket=>{
 			
 			if(CK[key]==2 && !playing[key]){ //방에 2명 있으면 StartCyto
 				io.sockets.in(room[key]).emit('StartCyto')
+				socket.emit('StartRoop') //2번째 플레이에게 roop를 보냄
 				playing[key]=1
 				console.log('StartCyto key : '+key)
 			}
@@ -43,7 +44,6 @@ io.on('connection', socket=>{
 			
 		});
 		
-
 	})
 
 	socket.on('leaveRoom', data => { //메인화면으로 나가기 버튼
@@ -65,6 +65,37 @@ io.on('connection', socket=>{
 		console.log('EndCyto '+keydata)
 		socket.leave(room[keydata], () => { 
 			console.log(id+' leave ' + room[keydata]);
+			CK[keydata]-=1
+			playing[keydata]=0
+		});
+	})
+
+	socket.on('Alive',data=>{
+		keydata = data['key']
+		id = data['id']
+		//socket.broadcast.to(room[keydata]).emit('Alive',data)
+		console.log(id+' alive!') 
+	})
+
+	socket.on('CanceljoinRoom', data => { //메인화면으로 나가기 버튼
+		keydata = data['key']
+		id = data['id']
+		console.log('CanceljoinRoom '+keydata)
+		socket.leave(room[keydata], () => {
+			console.log(id+' cancel ' + room[keydata]);
+			CK[keydata]-=1
+		});
+	});
+
+
+	socket.on('ShutCyto', data=>{ // 한 명이 게임을 강제종료했고 게임 승패가 갈린 경우
+		keydata = data['key']
+		id = data['id']
+		console.log('ShutCyto '+keydata+" "+room[keydata])
+		socket.leave(room[keydata], () => { 
+			CK[keydata]-=1
+		});
+		socket.leave(room[keydata], () => { 
 			CK[keydata]-=1
 			playing[keydata]=0
 		});

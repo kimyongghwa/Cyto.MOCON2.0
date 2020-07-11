@@ -32,7 +32,6 @@ public class CardManager : MonoBehaviour
 
     private int keyidx; //room 번호를 서버로부터 받아서 저장할 변수
     Dictionary<string, string> key = new Dictionary<string, string>(); //key 딕셔너리
-    Dictionary<string, string> sid = new Dictionary<string, string>(); //socket.sid 딕셔너리
 
     private SocketIOComponent socket; //소켓 선언
 
@@ -107,6 +106,7 @@ public class CardManager : MonoBehaviour
         socket.On("error", Error);
         socket.On("close", Close);
         socket.On("OpponentLeft", OpponentLeft);
+        socket.On("StartRoop", StartRoop);
 
 
         //StartCoroutine("BeepBoop");
@@ -162,7 +162,15 @@ public class CardManager : MonoBehaviour
 
     public void OpponentLeft(SocketIOEvent e)
     {
+        //상대가 떠났습니다 띄우고
         SceneManager.LoadScene(0);
+    }
+
+    public void StartRoop(SocketIOEvent e)
+    {
+        Debug.Log("Sodsfasdfsadfffffffffffffff");
+        key["id"] = socket.sid;
+        socket.Emit("Alive", new JSONObject(key));
     }
 
     public void CloseClick() //메인화면으로 나가기 버튼
