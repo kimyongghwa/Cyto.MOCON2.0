@@ -163,6 +163,7 @@ public class CardManager : MonoBehaviour
     public void OpponentLeft(SocketIOEvent e)
     {
         //상대가 떠났습니다 띄우고
+        PlayerPrefs.SetInt("Gone", 1);
         SceneManager.LoadScene(0);
     }
 
@@ -194,6 +195,7 @@ public class CardManager : MonoBehaviour
             GameObject go = GameObject.Find("SocketIO");
             socket = go.GetComponent<SocketIOComponent>();
         }
+        PlayerPrefs.SetInt("Gone", 0);
     }
     private void Start()
     {

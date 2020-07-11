@@ -10,6 +10,7 @@ public class SocketManager : MonoBehaviour
     public int keyidx;
     Dictionary<string, string> key = new Dictionary<string, string>();
     Dictionary<string, string> sid = new Dictionary<string, string>();
+    public GameObject tx;
 
     private SocketIOComponent socket;
 
@@ -24,7 +25,8 @@ public class SocketManager : MonoBehaviour
         socket.On("StartCyto", StartCyto);
         socket.On("error", Error);
         socket.On("close", Close);
-
+        if (PlayerPrefs.GetInt("Gone") == 1)
+            StartCoroutine("TextCoroutine");
         //StartCoroutine("BeepBoop");
     }
     public void StartCyto(SocketIOEvent e)
@@ -71,5 +73,12 @@ public class SocketManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(1);
+    }
+
+    IEnumerator TextCoroutine()
+    {
+        tx.SetActive(true);
+        yield return new WaitForSeconds(0.7f);
+        tx.SetActive(false);
     }
 }
