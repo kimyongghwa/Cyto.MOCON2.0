@@ -49,6 +49,10 @@ public class SocketManager : MonoBehaviour
         PlayerPrefs.SetString("key", key["key"]);
         Debug.Log("joinRoom " + "||" + e.data);
     }
+    public void CancleJoin() // 취소버튼 누르면 실행
+    {
+        socket.Emit("CanceljoinRoom", new JSONObject(key));
+    }
 
 
 

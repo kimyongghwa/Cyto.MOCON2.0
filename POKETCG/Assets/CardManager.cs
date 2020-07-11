@@ -302,6 +302,7 @@ public class CardManager : MonoBehaviour
     }
     public void DealGyo() //딜교환부분
     {
+        tCount = 5;
         if (BattleManager.Instance.Card != null)
         {
             BattleManager.Instance.myInfo.guard += BattleManager.Instance.Card.getArmor;
@@ -411,10 +412,7 @@ public class CardManager : MonoBehaviour
         tCount -= 0.1f;
         timerImage.fillAmount =  tCount / 5.0f;
         if(tCount <= 0)
-        {
             Click();
-            tCount = 5;
-        }
         StartCoroutine("TimerCoroutine");
     }
 }
