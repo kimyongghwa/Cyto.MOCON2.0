@@ -384,9 +384,12 @@ public class CardManager : MonoBehaviour
     }
     public void OnApplicationQuit()
     {
-        key["id"] = socket.sid;
-        socket.Emit("leaveRoom", new JSONObject(key));
-        Debug.Log("leaveRoom");
+        if (isMulti)
+        {
+            key["id"] = socket.sid;
+            socket.Emit("leaveRoom", new JSONObject(key));
+            Debug.Log("leaveRoom");
+        }
     }
     IEnumerator RerollCoroutine(int num)
     {
