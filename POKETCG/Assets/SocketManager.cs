@@ -85,5 +85,6 @@ public class SocketManager : MonoBehaviour
         tx.SetActive(true);
         yield return new WaitForSeconds(0.7f);
         tx.SetActive(false);
+        PlayerPrefs.SetInt("Gone", 0);
     }
 }
