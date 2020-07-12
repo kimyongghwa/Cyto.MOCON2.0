@@ -24,16 +24,24 @@ var key
 io.on('connection', socket=>{
 	
 	socket.on("joinRoom",data=> {
-
 		id = data['sid']
 
+		FLAG = 0; //대기중인 사람(1명)이 있는 방이 있나 체크       있으면 1          없으면 0
 		for(var i=0; i<10; i++){ //게임중이 아니고 인원이 2명이 아니면
-			if(CK[i]!=2 && !playing[i]){
+			if(CK[i]==1 && !playing[i]){
+				FLAG=1
 				key=i
 				break
 			}
 		}
-
+		if(!FLAG){
+		 	for(var i=0; i<10; i++){ //게임중이 아니고 인원이 2명이 아니면
+				if(CK[i]!=2 && !playing[i]){
+					key=i
+					break
+				}
+			}
+		}
 		socket.join(room[key], () => {
 			socket.emit('joinRoom',{'key':key})
 			console.log(id +' join ' + room[key]+' key '+key);
