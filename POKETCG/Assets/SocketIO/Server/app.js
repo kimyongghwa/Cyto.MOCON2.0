@@ -27,7 +27,7 @@ io.on('connection', socket=>{
 		id = data['sid']
 
 		FLAG = 0; //대기중인 사람(1명)이 있는 방이 있나 체크       있으면 1          없으면 0
-		for(var i=0; i<10; i++){ //게임중이 아니고 인원이 2명이 아니면
+		for(var i=0; i<10; i++){ 
 			if(CK[i]==1 && !playing[i]){
 				FLAG=1
 				key=i
@@ -94,10 +94,9 @@ io.on('connection', socket=>{
 
 	socket.on('CanceljoinRoom', data => { //대기화면 취소버튼
 		keydata = data['key']
-		id = data['id']
 		console.log('CanceljoinRoom '+keydata)
 		socket.leave(room[keydata], () => {
-			console.log(id+' cancel ' + room[keydata]);
+			console.log(' cancel ' + room[keydata]);
 			CK[keydata]-=1
 		});
 	});
