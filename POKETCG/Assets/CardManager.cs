@@ -176,9 +176,16 @@ public class CardManager : MonoBehaviour
 
     public void CloseClick() //메인화면으로 나가기 버튼
     {
-        key["id"] = socket.sid;
-        socket.Emit("leaveRoom", new JSONObject(key));
-        Debug.Log("leaveRoom");
+        if (isMulti)
+        {
+            key["id"] = socket.sid;
+            socket.Emit("leaveRoom", new JSONObject(key));
+            Debug.Log("leaveRoom");
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void Awake()
@@ -375,7 +382,12 @@ public class CardManager : MonoBehaviour
             }
         }
     }
-
+    public void OnApplicationQuit()
+    {
+        key["id"] = socket.sid;
+        socket.Emit("leaveRoom", new JSONObject(key));
+        Debug.Log("leaveRoom");
+    }
     IEnumerator RerollCoroutine(int num)
     {
         yield return new WaitForSeconds(0.015f);
