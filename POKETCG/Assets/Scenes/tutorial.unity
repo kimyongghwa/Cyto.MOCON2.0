@@ -3266,11 +3266,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MOB_MAGE
       objectReference: {fileID: 0}
-    - target: {fileID: 2711081748881587763, guid: 1b463c7167540944281b721431c10fd8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2711081748881587772, guid: 1b463c7167540944281b721431c10fd8,
         type: 3}
       propertyPath: m_LocalPosition.x
