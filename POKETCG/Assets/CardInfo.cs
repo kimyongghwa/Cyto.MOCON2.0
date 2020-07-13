@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CardInfo : MonoBehaviour
 {
+    public bool guardAttack;
     public Image thisImage;
     public Color color;
     public bool enemeCard;
@@ -47,6 +48,10 @@ public class CardInfo : MonoBehaviour
     }
     public void Update()
     {
+        if(guardAttack && enemeCard)
+            damage = BattleManager.Instance.otherInfo.guard;
+        else if(guardAttack && !enemeCard)
+            damage= BattleManager.Instance.myInfo.guard;
         if (BattleManager.Instance.Card == this)
             thisImage.color = new Color(255, 0, 0, 255);
         else
