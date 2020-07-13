@@ -50,7 +50,7 @@ public class CardInfo : MonoBehaviour
     {
         if(guardAttack && enemeCard)
             damage = BattleManager.Instance.otherInfo.guard;
-        else if(guardAttack && !enemeCard)
+        else if(guardAttack && !enemeCard && BattleManager.Instance.myInfo != null)
             damage= BattleManager.Instance.myInfo.guard;
         if (BattleManager.Instance.Card == this)
             thisImage.color = new Color(255, 0, 0, 255);

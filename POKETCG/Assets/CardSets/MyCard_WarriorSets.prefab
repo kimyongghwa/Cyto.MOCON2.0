@@ -554,6 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 6939130655374706271}
+  tutorial: 0
 --- !u!114 &2356818391607311488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,7 +944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 151.2, y: -20}
+  m_AnchoredPosition: {x: 142.45, y: -20.044983}
   m_SizeDelta: {x: 44.9, y: 40.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5884465349154015197
@@ -967,7 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  m_Color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1019,7 +1020,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 151.2, y: -20}
+  m_AnchoredPosition: {x: 142.45, y: -20.044983}
   m_SizeDelta: {x: 44.9, y: 40.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8585684184857544306
@@ -1043,7 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  m_Color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1237,6 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 7488842583092958457}
+  tutorial: 0
 --- !u!114 &1321068880719572655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1460,6 +1462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 6173686380843195216}
+  tutorial: 0
 --- !u!114 &2319148919503305935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1997,6 +2000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 4424978888314516484}
+  tutorial: 0
 --- !u!114 &8787110669444977221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2234,7 +2238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 151.2, y: -20}
+  m_AnchoredPosition: {x: 142.45, y: -20.044983}
   m_SizeDelta: {x: 44.9, y: 40.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9007942140794597005
@@ -2258,7 +2262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  m_Color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2386,7 +2390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 151.2, y: -20}
+  m_AnchoredPosition: {x: 142.45, y: -20.044983}
   m_SizeDelta: {x: 44.9, y: 40.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4274588746838514202
@@ -2410,7 +2414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  m_Color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2617,7 +2621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 151.2, y: -20}
+  m_AnchoredPosition: {x: 142.45, y: -20.044983}
   m_SizeDelta: {x: 44.9, y: 40.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1687207646628561058
@@ -2641,7 +2645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  m_Color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3066,6 +3070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 3290211652071663991}
+  tutorial: 0
 --- !u!114 &9133810970030428670
 MonoBehaviour:
   m_ObjectHideFlags: 0

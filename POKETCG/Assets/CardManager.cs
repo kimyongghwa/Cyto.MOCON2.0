@@ -28,7 +28,7 @@ public class CardManager : MonoBehaviour
     public int[] CardNum = new int[5];
     public Animator[] animator = new Animator[4];
     public Image timerImage;
-    float tCount = 5f;
+    float tCount = 7f;
 
     private int keyidx; //room 번호를 서버로부터 받아서 저장할 변수
     Dictionary<string, string> key = new Dictionary<string, string>(); //key 딕셔너리
@@ -311,7 +311,7 @@ public class CardManager : MonoBehaviour
     }
     public void DealGyo() //딜교환부분
     {
-        tCount = 5;
+        tCount = 7;
         if (BattleManager.Instance.Card != null)
         {
             BattleManager.Instance.myInfo.guard += BattleManager.Instance.Card.getArmor;
@@ -332,6 +332,8 @@ public class CardManager : MonoBehaviour
         }
         if (BattleManager.Instance.EnemeCard != null)
         {
+            if (BattleManager.Instance.EnemeCard.armorBreak)
+                BattleManager.Instance.myInfo.guard = 0;
             BattleManager.Instance.myInfo.guard -= BattleManager.Instance.EnemeCard.damage;
             if (BattleManager.Instance.myInfo.guard < 0)
             {
@@ -347,6 +349,8 @@ public class CardManager : MonoBehaviour
         }
         if (BattleManager.Instance.Card != null)
         {
+            if (BattleManager.Instance.Card.armorBreak)
+                BattleManager.Instance.otherInfo.guard = 0;
             BattleManager.Instance.otherInfo.guard -= BattleManager.Instance.Card.damage;
             if (BattleManager.Instance.otherInfo.guard < 0)
             {
@@ -427,7 +431,7 @@ public class CardManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         tCount -= 0.1f;
-        timerImage.fillAmount =  tCount / 5.0f;
+        timerImage.fillAmount =  tCount / 7.0f;
         if(tCount <= 0)
             Click();
         StartCoroutine("TimerCoroutine");

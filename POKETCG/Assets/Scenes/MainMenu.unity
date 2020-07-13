@@ -759,7 +759,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tutorial
+  m_Text: "\uD29C\uD1A0\uB9AC\uC5BC"
 --- !u!222 &319112410
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1632,6 +1632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1685117473}
+  tutorial: 0
 --- !u!1 &810058149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,7 +1860,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MULTIPLAY
+  m_Text: "\uBA40\uD2F0 \uD50C\uB808\uC774"
 --- !u!222 &962484945
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2017,6 +2018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1685117473}
+  tutorial: 0
 --- !u!114 &1509674766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2159,7 +2161,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2359,7 +2361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
       propertyPath: url
-      value: ws://127.0.0.1:4445/socket.io/?EIO=4&transport=websocket
+      value: ws://34.97.207.194:4445/socket.io/?EIO=4&transport=websocket
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
       propertyPath: autoConnect
@@ -2478,6 +2480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 298239198}
+  tutorial: 1
 --- !u!1 &1827893251
 GameObject:
   m_ObjectHideFlags: 0
