@@ -12,4 +12,8 @@ public class GameModeSelect : MonoBehaviour
     {
         PlayerPrefs.SetInt("GM", 1);
     }
+    public void ClickS()
+    {
+        PlayerPrefs.SetInt("GM", 2);
+    }
 }

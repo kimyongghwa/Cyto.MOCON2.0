@@ -849,9 +849,8 @@ MonoBehaviour:
   getMiss: 0
   hill: 0
   armorBreak: 1
-  effect: {fileID: 0}
-  effectSelf: {fileID: 2596747480546710006, guid: dde7ea4de037ff449bd31a83006eb353,
-    type: 3}
+  effect: {fileID: 525637959613858364, guid: f1df7c280a2eb3943b79f3ee4840d71f, type: 3}
+  effectSelf: {fileID: 0}
 --- !u!114 &5939043513001685656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1676,7 +1675,7 @@ MonoBehaviour:
   damage: 0
   getArmor: 0
   getMiss: 0
-  hill: 10
+  hill: 5
   armorBreak: 0
   effect: {fileID: 0}
   effectSelf: {fileID: 2596747480546710006, guid: dde7ea4de037ff449bd31a83006eb353,
@@ -1993,7 +1992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4002866987093977887
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2762,7 +2761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4424916526923135400
 RectTransform:
   m_ObjectHideFlags: 0

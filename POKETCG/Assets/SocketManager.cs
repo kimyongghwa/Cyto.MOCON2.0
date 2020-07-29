@@ -43,7 +43,7 @@ public class SocketManager : MonoBehaviour
             sid["sid"] = socket.sid;
             socket.Emit("joinRoom", new JSONObject(sid));
         }
-        else
+        else if(PlayerPrefs.GetInt("GM") == 0)
             SceneManager.LoadScene(2);
     }
     public void joinRoom(SocketIOEvent e)
