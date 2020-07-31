@@ -659,6 +659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 802046559}
+  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!1 &462363534
 GameObject:
@@ -1264,10 +1265,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 3536590953862114427, guid: 552d4ee69c69f8e4e8f332536854fcae, type: 3}
   - {fileID: 2546124269558817572, guid: b1b085672cdbe764eabab191e0b8ddb1, type: 3}
+  - {fileID: 6733275600687366411, guid: 9f74481987f42684494805e08985045a, type: 3}
   eneme:
   - {fileID: 0}
   - {fileID: 8325686993488463170, guid: dee561b21edfe804c98efc164798b16c, type: 3}
   - {fileID: 2711081748881587763, guid: 1b463c7167540944281b721431c10fd8, type: 3}
+  - {fileID: 3388451353822192169, guid: eb2c22b1b0a53d84996737ca03817623, type: 3}
   eskill:
   - {fileID: 0}
   - {fileID: 1624613843530662990, guid: 4dc7d5b34435cde4899a8cf4a88aa0a4, type: 3}

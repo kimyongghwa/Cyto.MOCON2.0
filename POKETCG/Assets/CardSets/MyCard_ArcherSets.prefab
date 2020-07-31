@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2956968354025383270}
   - component: {fileID: 1636796007904413224}
   m_Layer: 5
-  m_Name: KangTa
+  m_Name: SHOT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   getMiss: 0
   hill: 0
   armorBreak: 0
-  effect: {fileID: 7283138009142015134, guid: be352475e67f94e48ada05d053dd3183, type: 3}
+  effect: {fileID: 8546545128637319451, guid: c49f498060156fb4fa66bca990950bcb, type: 3}
   effectSelf: {fileID: 0}
 --- !u!114 &2956968354025383270
 MonoBehaviour:
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 7148624271508595127}
+  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &1636796007904413224
 MonoBehaviour:
@@ -240,7 +241,7 @@ GameObject:
   - component: {fileID: 7625242409462182315}
   - component: {fileID: 2651834916279342152}
   m_Layer: 5
-  m_Name: BigKangta
+  m_Name: BIGSHOT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -386,7 +387,7 @@ MonoBehaviour:
   getMiss: 0
   hill: 0
   armorBreak: 1
-  effect: {fileID: 4213832007180986340, guid: 888391e136c441b45819b9579d73fc7b, type: 3}
+  effect: {fileID: 2008689941629976618, guid: 92d1cfc09dae7ff45869116e53525960, type: 3}
   effectSelf: {fileID: 0}
 --- !u!114 &7625242409462182315
 MonoBehaviour:
@@ -401,6 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 5869846511780703774}
+  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &2651834916279342152
 MonoBehaviour:
@@ -1006,7 +1008,7 @@ GameObject:
   - component: {fileID: 1147413972031491203}
   - component: {fileID: 1598018365883827815}
   m_Layer: 5
-  m_Name: GuardPush
+  m_Name: HIT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1144,13 +1146,13 @@ MonoBehaviour:
   thisImage: {fileID: 6772263684618078627}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
   enemeCard: 0
-  cost: 0000000000000000000000000200000000000000
-  damage: 0
+  cost: 0000000000000000000000000000000001000000
+  damage: 4
   getArmor: 0
   getMiss: 0
   hill: 0
   armorBreak: 0
-  effect: {fileID: 444717541749201046, guid: c4c8af0d84635cb4da4b6b8cf074476c, type: 3}
+  effect: {fileID: 5227300611392918148, guid: b6d73c3019c729644a392dc95f1ff8b0, type: 3}
   effectSelf: {fileID: 0}
 --- !u!114 &1147413972031491203
 MonoBehaviour:
@@ -1165,6 +1167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 6256883597524876472}
+  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &1598018365883827815
 MonoBehaviour:
@@ -1607,7 +1610,7 @@ GameObject:
   - component: {fileID: 2168675406029566257}
   - component: {fileID: 5213343473648331545}
   m_Layer: 5
-  m_Name: Guard
+  m_Name: GURUGI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1746,14 +1749,14 @@ MonoBehaviour:
   thisImage: {fileID: 2232882173193599865}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
   enemeCard: 0
-  cost: 0000000000000000020000000000000000000000
+  cost: 0000000000000000010000000100000000000000
   damage: 0
   getArmor: 5
   getMiss: 0
   hill: 0
   armorBreak: 0
   effect: {fileID: 0}
-  effectSelf: {fileID: 7079771699267316692, guid: e05cce65978e4ce4d8a552db698a432c,
+  effectSelf: {fileID: 3287751184188160166, guid: 21abbe960960d134684d64218941093f,
     type: 3}
 --- !u!114 &2168675406029566257
 MonoBehaviour:
@@ -1768,6 +1771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1959482531628127120}
+  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &5213343473648331545
 MonoBehaviour:
@@ -2832,7 +2836,7 @@ GameObject:
   - component: {fileID: 7685162751434475408}
   - component: {fileID: 5722459336647780514}
   m_Layer: 5
-  m_Name: Guard and Atk
+  m_Name: DOUBLESHOT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2977,7 +2981,7 @@ MonoBehaviour:
   getMiss: 0
   hill: 0
   armorBreak: 0
-  effect: {fileID: 5227300611392918148, guid: b6d73c3019c729644a392dc95f1ff8b0, type: 3}
+  effect: {fileID: 5356714059893759165, guid: 700c7c6dc6ce4454b8cce1fd9b2615be, type: 3}
   effectSelf: {fileID: 0}
 --- !u!114 &7685162751434475408
 MonoBehaviour:
@@ -2992,6 +2996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 860462617662377699}
+  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &5722459336647780514
 MonoBehaviour:

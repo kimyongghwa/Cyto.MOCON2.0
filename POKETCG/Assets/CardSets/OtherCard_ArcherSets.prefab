@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 4553192212766146696}
   - component: {fileID: 40077682975368134}
   m_Layer: 5
-  m_Name: KangTa
+  m_Name: SHOTE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -483,6 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 8434240287349408857}
+  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &40077682975368134
 MonoBehaviour:
@@ -547,7 +548,7 @@ GameObject:
   - component: {fileID: 9217529981603533893}
   - component: {fileID: 3671637605135397286}
   m_Layer: 5
-  m_Name: BigKangta
+  m_Name: BIGSHOTE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -708,6 +709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 5137641192812465136}
+  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &3671637605135397286
 MonoBehaviour:
@@ -1308,7 +1310,7 @@ GameObject:
   - component: {fileID: 1861426804749805933}
   - component: {fileID: 5697669369373577}
   m_Layer: 5
-  m_Name: GuardPush
+  m_Name: HITE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1446,7 +1448,7 @@ MonoBehaviour:
   thisImage: {fileID: 5459095899746675789}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
   enemeCard: 1
-  cost: 0000000000000000000000000200000000000000
+  cost: 0000000000000000000000000000000001000000
   damage: 0
   getArmor: 0
   getMiss: 0
@@ -1467,6 +1469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 4678564122201250134}
+  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &5697669369373577
 MonoBehaviour:
@@ -2069,7 +2072,7 @@ GameObject:
   - component: {fileID: 585993475640906975}
   - component: {fileID: 6800707533090164471}
   m_Layer: 5
-  m_Name: Guard
+  m_Name: GURUGIE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2208,7 +2211,7 @@ MonoBehaviour:
   thisImage: {fileID: 632115544706834071}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
   enemeCard: 1
-  cost: 0000000000000000020000000000000000000000
+  cost: 0000000000000000010000000100000000000000
   damage: 0
   getArmor: 5
   getMiss: 0
@@ -2230,6 +2233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 939011275370165886}
+  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &6800707533090164471
 MonoBehaviour:
@@ -2601,7 +2605,7 @@ GameObject:
   - component: {fileID: 8979718004033036926}
   - component: {fileID: 6436542503910067532}
   m_Layer: 5
-  m_Name: Guard and Atk
+  m_Name: DOUBLESHOTE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2761,6 +2765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 2146397389190441741}
+  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &6436542503910067532
 MonoBehaviour:
