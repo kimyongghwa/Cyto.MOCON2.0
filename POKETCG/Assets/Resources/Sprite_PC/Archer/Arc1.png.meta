@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 620
+  spritePixelsToUnits: 330
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,12 +104,12 @@ TextureImporter:
       name: Arc1_0
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 850
-        width: 1180
-        height: 1250
+        x: 1050
+        y: 950
+        width: 450
+        height: 620
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

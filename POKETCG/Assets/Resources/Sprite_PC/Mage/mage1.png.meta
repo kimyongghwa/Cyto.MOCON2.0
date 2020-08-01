@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 7475961083183233961
     second: mage1_0
+  - first:
+      213: 1603341064947792584
+    second: mage1_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -48,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 220
+  spritePixelsToUnits: 330
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -85,6 +88,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -92,12 +107,12 @@ TextureImporter:
       name: mage1_0
       rect:
         serializedVersion: 2
-        x: 515
-        y: 2222
-        width: 375
-        height: 430
+        x: 300
+        y: 880
+        width: 620
+        height: 750
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -105,6 +120,27 @@ TextureImporter:
       bones: []
       spriteID: 002eb3f776cc41246b41a0c1650c2241
       internalID: 7475961083183233961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage1_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 880
+        width: 620
+        height: 750
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49b86c897e73264c98895e722b4534a
+      internalID: 1603341064947792584
       vertices: []
       indices: 
       edges: []

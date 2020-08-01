@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 795fc913a2db49a42b427113eb5b36bc
+guid: 65c1a2906d7f49d459a6371d5928f2cc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7560534066931065095
-    second: mage3_0
+      213: 7365183380280164252
+    second: MOB1_0
+  - first:
+      213: -3643455928306504608
+    second: MOB1_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -34,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -48,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 330
+  spritePixelsToUnits: 220
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -66,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -78,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -90,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,22 +104,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mage3_0
+      name: MOB1_0
       rect:
         serializedVersion: 2
-        x: 300
-        y: 880
-        width: 620
-        height: 750
+        x: 3999
+        y: 1550
+        width: 1
+        height: 500
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dad8a67042769d644b7034c073b4d352
-      internalID: -7560534066931065095
+      spriteID: d40f50a062a7df94f8bf22bb2f097432
+      internalID: 7365183380280164252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MOB1_1
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 1550
+        width: 400
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff41a5b8879c8f44cb3ad0b24c29ae3a
+      internalID: -3643455928306504608
       vertices: []
       indices: 
       edges: []
