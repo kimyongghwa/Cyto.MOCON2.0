@@ -26,7 +26,7 @@ io.on('connection', socket=>{
 	socket.on("joinRoom",data=> {
 		id = data['sid']
 		checkflag = data['flag']
-		if(checkflag){
+		if(checkflag=='1'){
 			
 		}
 		else{

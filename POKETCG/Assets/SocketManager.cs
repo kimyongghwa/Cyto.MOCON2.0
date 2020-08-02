@@ -11,6 +11,7 @@ public class SocketManager : MonoBehaviour
     public int keyidx;
     Dictionary<string, string> key = new Dictionary<string, string>();
     Dictionary<string, string> sid = new Dictionary<string, string>();
+    Dictionary<string, string> flagcheck = new Dictionary<string, string>();
     public GameObject tx;
 
     private SocketIOComponent socket;
@@ -108,8 +109,7 @@ public class SocketManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         MatchingCheck.Instance.isMatching = true;
-        sid["sid"] = socket.sid;
-        sid["flag"] ="1";
-        socket.Emit("joinRoom", new JSONObject(sid));
+        flagcheck["flag"] ="1";
+        socket.Emit("joinRoom", new JSONObject(flagcheck));
     }
 }
