@@ -25,7 +25,11 @@ io.on('connection', socket=>{
 	
 	socket.on("joinRoom",data=> {
 		id = data['sid']
-
+		checkflag = data['flag']
+		if(checkflag){
+			
+		}
+		else{
 		FLAG = 0; //대기중인 사람(1명)이 있는 방이 있나 체크       있으면 1          없으면 0
 		for(var i=0; i<10; i++){ 
 			if(CK[i]==1 && !playing[i]){
@@ -55,7 +59,7 @@ io.on('connection', socket=>{
 			}
 			
 		});
-		
+	}
 	})
 
 	socket.on('leaveRoom', data => { //메인화면으로 나가기 버튼
