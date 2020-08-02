@@ -12,7 +12,7 @@ public class CardManager : MonoBehaviour
     public int LastStageNum = 0; //싱글플레이전용 변수들
     int stageNum = 0;
     public GameObject enemeSaveSkill;
-
+    GameObject acro;
     public bool isChecked;
     public bool isEnemeChecked;
     public CardManager e_cardManager;
@@ -22,7 +22,7 @@ public class CardManager : MonoBehaviour
     public GameObject[] skill = new GameObject[3];
     public GameObject gg;
     public GameObject de;
-    GameObject canvas;
+    public GameObject canvas;
     public GameObject battleScene;
     public bool isAi;
     public bool isMulti;
@@ -44,7 +44,7 @@ public class CardManager : MonoBehaviour
 
     public void StartServer()
     {
-        GameObject go = GameObject.Find("SocketIO");
+        GameObject go = GameObject.Find("SocketIO(Clone)");
         socket = go.GetComponent<SocketIOComponent>();
 
 
@@ -75,11 +75,9 @@ public class CardManager : MonoBehaviour
                 Debug.Log((int)char.GetNumericValue(e.data[0].ToString()[1]));
                 int a = (int)char.GetNumericValue(e.data[0].ToString()[1]);
                 //상대 카드를 딕셔너리로 받아옴
-                GameObject b = eneme[a];/*Instantiate(eneme[a], battleScene.transform);*/
-                eneme[a].SetActive(true);
-                eskill[a].SetActive(true);
+                GameObject b = Instantiate(eneme[a], battleScene.transform);
+                Instantiate(eskill[a], canvas.transform);
                 BattleManager.Instance.otherInfo = b.GetComponent<PlayerInfo>();
-                //Instantiate(eskill[a], canvas.transform);
             }
         });
 
@@ -205,7 +203,7 @@ public class CardManager : MonoBehaviour
         }
         else if (isMultiEneme)
         {
-            GameObject go = GameObject.Find("SocketIO");
+            GameObject go = GameObject.Find("SocketIO(Clone)");
             socket = go.GetComponent<SocketIOComponent>();
         }
         PlayerPrefs.SetInt("Gone", 0);
@@ -223,12 +221,8 @@ public class CardManager : MonoBehaviour
         }
         if (!isAi && !isMultiEneme)
         {
-            canvas = GameObject.Find("Canvas");
-            //Instantiate(skill[PlayerPrefs.GetInt("PC", 1)], canvas.transform);
-            skill[PlayerPrefs.GetInt("PC", 1)].SetActive(true);
-            GameObject a = pc[PlayerPrefs.GetInt("PC", 1)];
-            pc[PlayerPrefs.GetInt("PC", 1)].SetActive(true);
-            //GameObject a =  Instantiate(pc[PlayerPrefs.GetInt("PC", 1)], battleScene.transform);
+            Instantiate(skill[PlayerPrefs.GetInt("PC", 1)], canvas.transform);
+            GameObject a =  Instantiate(pc[PlayerPrefs.GetInt("PC", 1)], battleScene.transform);
         }
         if(!isMulti)
             Reroll();
@@ -353,10 +347,16 @@ public class CardManager : MonoBehaviour
                 BattleManager.Instance.myInfo.guard = 0;
             }
             if (BattleManager.Instance.EnemeCard.effect != null)
-                Instantiate(BattleManager.Instance.EnemeCard.effect, BattleManager.Instance.myInfo.transform);
+            {
+                acro = Instantiate(BattleManager.Instance.EnemeCard.effect, BattleManager.Instance.myInfo.gameObject.transform);
+                acro.transform.parent = null;
+            }
             if (BattleManager.Instance.EnemeCard.effectSelf != null)
-                Instantiate(BattleManager.Instance.EnemeCard.effectSelf, BattleManager.Instance.otherInfo.transform);
-            if (BattleManager.Instance.EnemeCard.damage != 0)
+            { 
+                acro = Instantiate(BattleManager.Instance.EnemeCard.effectSelf, BattleManager.Instance.otherInfo.gameObject.transform);
+                acro.transform.parent = null;
+        }
+        if (BattleManager.Instance.EnemeCard.damage != 0)
                 StartCoroutine("PlayerHit", true);
         }
         if (BattleManager.Instance.Card != null)
@@ -370,10 +370,16 @@ public class CardManager : MonoBehaviour
                 BattleManager.Instance.otherInfo.guard = 0;
             }
             if (BattleManager.Instance.Card.effect != null)
-                Instantiate(BattleManager.Instance.Card.effect, BattleManager.Instance.otherInfo.transform);
+            {
+                acro = Instantiate(BattleManager.Instance.Card.effect, BattleManager.Instance.otherInfo.gameObject.transform);
+                acro.transform.parent = null;
+            }
             if (BattleManager.Instance.Card.effectSelf != null)
-                Instantiate(BattleManager.Instance.Card.effectSelf, BattleManager.Instance.myInfo.transform);
-            if (BattleManager.Instance.Card.damage != 0)
+            {
+                acro = Instantiate(BattleManager.Instance.Card.effectSelf, BattleManager.Instance.myInfo.gameObject.transform);
+                acro.transform.parent = null;
+            }
+        if (BattleManager.Instance.Card.damage != 0)
                 StartCoroutine("PlayerHit", false);
         }
         if (BattleManager.Instance.otherInfo.nowHp <= 0) //승
@@ -415,6 +421,8 @@ public class CardManager : MonoBehaviour
     {
         if (isMulti)
         {
+            GameObject go = GameObject.Find("SocketIO(Clone)");
+            socket = go.GetComponent<SocketIOComponent>();
             key["id"] = socket.sid;
             socket.Emit("leaveRoom", new JSONObject(key));
             Debug.Log("leaveRoom");
@@ -469,10 +477,9 @@ public class CardManager : MonoBehaviour
     IEnumerator NextStage()
     {
         yield return new WaitForSeconds(1.5f);
-        BattleManager.Instance.otherInfo = eneme[stageNum].GetComponent<PlayerInfo>();
-        eneme[stageNum].SetActive(true);
-        enemeSaveSkill = eskill[stageNum];
-        eskill[stageNum].SetActive(true);
+        GameObject imsi = Instantiate(eneme[stageNum], battleScene.transform);
+        BattleManager.Instance.otherInfo = imsi.GetComponent<PlayerInfo>();
+        enemeSaveSkill = Instantiate(eskill[stageNum], canvas.transform);
         e_cardManager.ai = enemeSaveSkill.GetComponent<AISkill>();
     }
 }

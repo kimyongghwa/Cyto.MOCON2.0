@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class SocketManager : MonoBehaviour
 {
+    public GameObject socketIO;
     public int keyidx;
     Dictionary<string, string> key = new Dictionary<string, string>();
     Dictionary<string, string> sid = new Dictionary<string, string>();
@@ -16,18 +17,24 @@ public class SocketManager : MonoBehaviour
 
     public void Start()
     {
-        GameObject go = GameObject.Find("SocketIO");
-        socket = go.GetComponent<SocketIOComponent>();
+        //if(Application.internetReachability != NetworkReachability.NotReachable) {
+            Instantiate(socketIO);
 
-        socket.On("open", OnSocketOpen);
+            GameObject go = GameObject.Find("SocketIO(Clone)");
+            socket = go.GetComponent<SocketIOComponent>();
 
-        socket.On("joinRoom", joinRoom);
-        socket.On("StartCyto", StartCyto);
-        socket.On("error", Error);
-        socket.On("close", Close);
+            socket.On("open", OnSocketOpen);
+
+            socket.On("joinRoom", joinRoom);
+            socket.On("StartCyto", StartCyto);
+            socket.On("error", Error);
+            socket.On("close", Close);
+            PlayerPrefs.SetInt("GM", 1);
+            StartCoroutine("BeepBoop");
+        //}
         if (PlayerPrefs.GetInt("Gone") == 1)
             StartCoroutine("TextCoroutine");
-        //StartCoroutine("BeepBoop");
+
     }
     public void StartCyto(SocketIOEvent e)
     {
@@ -67,7 +74,10 @@ public class SocketManager : MonoBehaviour
             socket.Emit("CanceljoinRoom", new JSONObject(key));
         }
     }
-
+    private void OnApplicationQuit()
+    {
+        CancleJoin();
+    }
 
 
     public void Error(SocketIOEvent e)
@@ -93,5 +103,12 @@ public class SocketManager : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         tx.SetActive(false);
         PlayerPrefs.SetInt("Gone", 0);
+    }
+    IEnumerator BeepBoop()
+    {
+        yield return new WaitForSeconds(0.1f);
+        MatchingCheck.Instance.isMatching = true;
+        sid["sid"] = socket.sid;
+        socket.Emit("joinRoom", new JSONObject(sid));
     }
 }

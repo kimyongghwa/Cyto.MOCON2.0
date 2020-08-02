@@ -334,7 +334,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3388451353822192169}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.00000008742278, z: 0, w: -1}
   m_LocalPosition: {x: 2, y: 1, z: 1.133542}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children:
@@ -426,7 +426,7 @@ MonoBehaviour:
   pc: 0
   maxHp: 30
   nowHp: 30
-  guard: 0
+  guard: 5
   HpImage: {fileID: 3388451353547122881}
   HpText: {fileID: 3388451353450937151}
   GuardText: {fileID: 3388451354308292834}
