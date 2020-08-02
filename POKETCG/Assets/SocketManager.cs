@@ -109,6 +109,7 @@ public class SocketManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         MatchingCheck.Instance.isMatching = true;
         sid["sid"] = socket.sid;
+        sid["flag"] ="1";
         socket.Emit("joinRoom", new JSONObject(sid));
     }
 }
