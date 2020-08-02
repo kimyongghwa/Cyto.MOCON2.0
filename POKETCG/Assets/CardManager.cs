@@ -8,7 +8,11 @@ using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour
 {
-    
+    public GameObject NS;
+    public int LastStageNum = 0; //싱글플레이전용 변수들
+    int stageNum = 0;
+    public GameObject enemeSaveSkill;
+
     public bool isChecked;
     public bool isEnemeChecked;
     public CardManager e_cardManager;
@@ -71,9 +75,11 @@ public class CardManager : MonoBehaviour
                 Debug.Log((int)char.GetNumericValue(e.data[0].ToString()[1]));
                 int a = (int)char.GetNumericValue(e.data[0].ToString()[1]);
                 //상대 카드를 딕셔너리로 받아옴
-                GameObject b = Instantiate(eneme[a], battleScene.transform);
+                GameObject b = eneme[a];/*Instantiate(eneme[a], battleScene.transform);*/
+                eneme[a].SetActive(true);
+                eskill[a].SetActive(true);
                 BattleManager.Instance.otherInfo = b.GetComponent<PlayerInfo>();
-                Instantiate(eskill[a], canvas.transform);
+                //Instantiate(eskill[a], canvas.transform);
             }
         });
 
@@ -218,8 +224,11 @@ public class CardManager : MonoBehaviour
         if (!isAi && !isMultiEneme)
         {
             canvas = GameObject.Find("Canvas");
-            Instantiate(skill[PlayerPrefs.GetInt("PC", 1)], canvas.transform);
-            GameObject a = Instantiate(pc[PlayerPrefs.GetInt("PC", 1)], battleScene.transform);
+            //Instantiate(skill[PlayerPrefs.GetInt("PC", 1)], canvas.transform);
+            skill[PlayerPrefs.GetInt("PC", 1)].SetActive(true);
+            GameObject a = pc[PlayerPrefs.GetInt("PC", 1)];
+            pc[PlayerPrefs.GetInt("PC", 1)].SetActive(true);
+            //GameObject a =  Instantiate(pc[PlayerPrefs.GetInt("PC", 1)], battleScene.transform);
         }
         if(!isMulti)
             Reroll();
@@ -265,9 +274,12 @@ public class CardManager : MonoBehaviour
         }
         if (isAi)
         { // ai일 경우 나온 카드에 따라 사용할 기술을 정해준다.
-            for (int i = ai.cards.Length - 1; i >= 0; i--)
+            if (ai != null)
             {
-                AiSelect(i);
+                for (int i = ai.cards.Length - 1; i >= 0; i--)
+                {
+                    AiSelect(i);
+                }
             }
         }
     }
@@ -364,15 +376,26 @@ public class CardManager : MonoBehaviour
             if (BattleManager.Instance.Card.damage != 0)
                 StartCoroutine("PlayerHit", false);
         }
-        BattleManager.Instance.Card = null;
-        BattleManager.Instance.EnemeCard = null;
         if (BattleManager.Instance.otherInfo.nowHp <= 0) //승
         {
-            de.SetActive(true);
-            if (isMulti && !isMultiEneme)
+            if (PlayerPrefs.GetInt("GM") == 2 && LastStageNum > stageNum)
             {
-                key["id"] = socket.sid;
-                socket.Emit("EndCyto", new JSONObject(key));
+                stageNum++;
+                BattleManager.Instance.otherInfo.gameObject.SetActive(false);
+                BattleManager.Instance.myInfo.nowHp = BattleManager.Instance.myInfo.maxHp;
+                NS.SetActive(true);
+                if (enemeSaveSkill != null)
+                    enemeSaveSkill.SetActive(false);
+                StartCoroutine("NextStage");
+            }
+            else
+            {
+                de.SetActive(true);
+                if (isMulti && !isMultiEneme)
+                {
+                    key["id"] = socket.sid;
+                    socket.Emit("EndCyto", new JSONObject(key));
+                }
             }
         }
 
@@ -385,6 +408,8 @@ public class CardManager : MonoBehaviour
                 socket.Emit("EndCyto", new JSONObject(key));
             }
         }
+        BattleManager.Instance.Card = null;
+        BattleManager.Instance.EnemeCard = null;
     }
     public void OnApplicationQuit()
     {
@@ -418,13 +443,17 @@ public class CardManager : MonoBehaviour
         if (a)
             p1 = BattleManager.Instance.myInfo.gameObject;
         yield return new WaitForSeconds(0.03f);
+        if(p1 != null)
         p1.transform.localRotation = Quaternion.Euler(0, 90, 0);
         yield return new WaitForSeconds(0.03f);
-        p1.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        if (p1 != null)
+            p1.transform.localRotation = Quaternion.Euler(0, 180, 0);
         yield return new WaitForSeconds(0.03f);
-        p1.transform.localRotation = Quaternion.Euler(0, 270, 0);
+        if (p1 != null)
+            p1.transform.localRotation = Quaternion.Euler(0, 270, 0);
         yield return new WaitForSeconds(0.03f);
-        p1.transform.localRotation = Quaternion.Euler(0, 360, 0);
+        if (p1 != null)
+            p1.transform.localRotation = Quaternion.Euler(0, 360, 0);
     }
 
     IEnumerator TimerCoroutine()
@@ -435,5 +464,15 @@ public class CardManager : MonoBehaviour
         if(tCount <= 0)
             Click();
         StartCoroutine("TimerCoroutine");
+    }
+
+    IEnumerator NextStage()
+    {
+        yield return new WaitForSeconds(1.5f);
+        BattleManager.Instance.otherInfo = eneme[stageNum].GetComponent<PlayerInfo>();
+        eneme[stageNum].SetActive(true);
+        enemeSaveSkill = eskill[stageNum];
+        eskill[stageNum].SetActive(true);
+        e_cardManager.ai = enemeSaveSkill.GetComponent<AISkill>();
     }
 }

@@ -468,7 +468,7 @@ MonoBehaviour:
   getMiss: 0
   hill: 0
   armorBreak: 0
-  effect: {fileID: 7283138009142015134, guid: be352475e67f94e48ada05d053dd3183, type: 3}
+  effect: {fileID: 8546545128637319451, guid: c49f498060156fb4fa66bca990950bcb, type: 3}
   effectSelf: {fileID: 0}
 --- !u!114 &4553192212766146696
 MonoBehaviour:
@@ -483,7 +483,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 8434240287349408857}
-  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &40077682975368134
 MonoBehaviour:
@@ -694,7 +693,7 @@ MonoBehaviour:
   getMiss: 0
   hill: 0
   armorBreak: 1
-  effect: {fileID: 4213832007180986340, guid: 888391e136c441b45819b9579d73fc7b, type: 3}
+  effect: {fileID: 2008689941629976618, guid: 92d1cfc09dae7ff45869116e53525960, type: 3}
   effectSelf: {fileID: 0}
 --- !u!114 &9217529981603533893
 MonoBehaviour:
@@ -709,7 +708,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 5137641192812465136}
-  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &3671637605135397286
 MonoBehaviour:
@@ -1174,9 +1172,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3103075341572274559}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5555556, y: 0.5555556, z: 0.5555556}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 13696078648759808}
   - {fileID: 1548197554991089404}
@@ -1186,9 +1184,9 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -280.5556, y: -208.33334}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -90, y: -140}
   m_SizeDelta: {x: 129.5, y: 257.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3103075341572274553
@@ -1449,12 +1447,12 @@ MonoBehaviour:
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
   enemeCard: 1
   cost: 0000000000000000000000000000000001000000
-  damage: 0
+  damage: 4
   getArmor: 0
   getMiss: 0
   hill: 0
   armorBreak: 0
-  effect: {fileID: 444717541749201046, guid: c4c8af0d84635cb4da4b6b8cf074476c, type: 3}
+  effect: {fileID: 5227300611392918148, guid: b6d73c3019c729644a392dc95f1ff8b0, type: 3}
   effectSelf: {fileID: 0}
 --- !u!114 &1861426804749805933
 MonoBehaviour:
@@ -1469,7 +1467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 4678564122201250134}
-  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &5697669369373577
 MonoBehaviour:
@@ -2218,7 +2215,7 @@ MonoBehaviour:
   hill: 0
   armorBreak: 0
   effect: {fileID: 0}
-  effectSelf: {fileID: 7079771699267316692, guid: e05cce65978e4ce4d8a552db698a432c,
+  effectSelf: {fileID: 3287751184188160166, guid: 21abbe960960d134684d64218941093f,
     type: 3}
 --- !u!114 &585993475640906975
 MonoBehaviour:
@@ -2233,7 +2230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 939011275370165886}
-  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &6800707533090164471
 MonoBehaviour:
@@ -2750,7 +2746,7 @@ MonoBehaviour:
   getMiss: 0
   hill: 0
   armorBreak: 0
-  effect: {fileID: 5227300611392918148, guid: b6d73c3019c729644a392dc95f1ff8b0, type: 3}
+  effect: {fileID: 2008689941629976618, guid: 92d1cfc09dae7ff45869116e53525960, type: 3}
   effectSelf: {fileID: 0}
 --- !u!114 &8979718004033036926
 MonoBehaviour:
@@ -2765,7 +2761,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 2146397389190441741}
-  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &6436542503910067532
 MonoBehaviour:

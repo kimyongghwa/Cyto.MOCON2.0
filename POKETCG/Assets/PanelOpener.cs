@@ -5,7 +5,6 @@ using UnityEngine;
 public class PanelOpener : MonoBehaviour
 {
     public GameObject panel;
-    public GameObject bangPanel;
     public bool tutorial;
 
     public void OnMouseEnter()
@@ -22,9 +21,5 @@ public class PanelOpener : MonoBehaviour
             panel.SetActive(!panel.activeSelf);
         else if (tutorial && PlayerPrefs.GetInt("GM") == 1)
             panel.SetActive(!panel.activeSelf);
-        else if (tutorial && PlayerPrefs.GetInt("GM") == 2)
-        {
-            bangPanel.SetActive(true);
-        }
     }
 }

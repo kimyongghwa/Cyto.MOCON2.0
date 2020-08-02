@@ -40,11 +40,14 @@ public class SocketManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("GM") == 1)
         {
+            MatchingCheck.Instance.isMatching = true;
             sid["sid"] = socket.sid;
             socket.Emit("joinRoom", new JSONObject(sid));
         }
         else if(PlayerPrefs.GetInt("GM") == 0)
             SceneManager.LoadScene(2);
+        else if (PlayerPrefs.GetInt("GM") == 2)
+            SceneManager.LoadScene(3);
     }
     public void joinRoom(SocketIOEvent e)
     {
@@ -58,7 +61,11 @@ public class SocketManager : MonoBehaviour
     }
     public void CancleJoin() // 취소버튼 누르면 실행
     {
-        socket.Emit("CanceljoinRoom", new JSONObject(key));
+        if (MatchingCheck.Instance.isMatching == true)
+        {
+            MatchingCheck.Instance.isMatching = false;
+            socket.Emit("CanceljoinRoom", new JSONObject(key));
+        }
     }
 
 

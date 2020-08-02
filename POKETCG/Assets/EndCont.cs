@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class EndCont : MonoBehaviour
 {
+    public bool haveNext;
     float time;
     public Text[] panelText = new Text[3];
     public Image[] sceneImage = new Image[3];
@@ -29,7 +30,13 @@ public class EndCont : MonoBehaviour
 
     IEnumerator SendLobbyCoroutine()
     {
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(0);
+        yield return new WaitForSeconds(1.5f);
+        if (haveNext)
+            this.gameObject.SetActive(false);
+        else
+        {
+            yield return new WaitForSeconds(1.5f);
+            SceneManager.LoadScene(0);
+        }
     }
 }

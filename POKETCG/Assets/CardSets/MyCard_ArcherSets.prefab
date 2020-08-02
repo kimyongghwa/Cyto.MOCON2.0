@@ -176,7 +176,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 7148624271508595127}
-  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &1636796007904413224
 MonoBehaviour:
@@ -402,7 +401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 5869846511780703774}
-  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &2651834916279342152
 MonoBehaviour:
@@ -1167,7 +1165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 6256883597524876472}
-  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &1598018365883827815
 MonoBehaviour:
@@ -1565,9 +1562,9 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -455, y: 165}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 90, y: -140}
   m_SizeDelta: {x: 129.5, y: 257.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4407095120830209175
@@ -1771,7 +1768,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1959482531628127120}
-  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &5213343473648331545
 MonoBehaviour:
@@ -2996,7 +2992,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 860462617662377699}
-  bangPanel: {fileID: 0}
   tutorial: 0
 --- !u!114 &5722459336647780514
 MonoBehaviour:

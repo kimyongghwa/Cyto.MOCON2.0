@@ -25,7 +25,4 @@ public class BattleManager : MonoBehaviour
         }
 
     }
-    private void Start()
-    {
-    }
 }
