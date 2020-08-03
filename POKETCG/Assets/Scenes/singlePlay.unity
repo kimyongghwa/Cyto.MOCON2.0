@@ -3303,7 +3303,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &2096748009
 RectTransform:
@@ -3468,7 +3468,7 @@ PrefabInstance:
     - target: {fileID: 5641486448639204009, guid: de12ed077d650ff448d43c2f38059dac,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5641486448639204009, guid: de12ed077d650ff448d43c2f38059dac,
         type: 3}

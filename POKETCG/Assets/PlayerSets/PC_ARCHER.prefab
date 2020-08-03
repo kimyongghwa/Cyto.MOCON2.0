@@ -118,7 +118,7 @@ MonoBehaviour:
   pc: 1
   maxHp: 30
   nowHp: 30
-  guard: 0
+  guard: 5
   HpImage: {fileID: 6733275600932031459}
   HpText: {fileID: 6733275601457092637}
   GuardText: {fileID: 6733275602313892800}
