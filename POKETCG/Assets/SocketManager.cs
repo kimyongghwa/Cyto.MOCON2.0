@@ -25,12 +25,13 @@ public class SocketManager : MonoBehaviour
             socket = go.GetComponent<SocketIOComponent>();
 
             socket.On("open", OnSocketOpen);
-
+            socket.On("testRoom",testRoom);
             socket.On("joinRoom", joinRoom);
             socket.On("StartCyto", StartCyto);
             socket.On("error", Error);
             socket.On("close", Close);
             PlayerPrefs.SetInt("GM", 1);
+            
             StartCoroutine("BeepBoop");
         //}
         if (PlayerPrefs.GetInt("Gone") == 1)
@@ -84,6 +85,10 @@ public class SocketManager : MonoBehaviour
     public void Error(SocketIOEvent e)
     {
         Debug.Log("SocketIO Error received: " + e.name + "||" + e.data);
+    }
+    public void testRoom(SocketIOEvent e)
+    {
+        Debug.Log("testRoomReceived");
     }
 
     public void Close(SocketIOEvent e)
