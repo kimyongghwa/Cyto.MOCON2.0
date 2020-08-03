@@ -9,6 +9,7 @@ public class SocketManager : MonoBehaviour
 {
     public GameObject socketIO;
     public int keyidx;
+    public GameObject firstEyes;
     Dictionary<string, string> key = new Dictionary<string, string>();
     Dictionary<string, string> sid = new Dictionary<string, string>();
     Dictionary<string, string> flagcheck = new Dictionary<string, string>();
@@ -36,7 +37,6 @@ public class SocketManager : MonoBehaviour
         //}
         if (PlayerPrefs.GetInt("Gone") == 1)
             StartCoroutine("TextCoroutine");
-
     }
     public void StartCyto(SocketIOEvent e)
     {
@@ -102,7 +102,6 @@ public class SocketManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(1);
     }
-
     IEnumerator TextCoroutine()
     {
         tx.SetActive(true);
@@ -113,7 +112,12 @@ public class SocketManager : MonoBehaviour
     IEnumerator BeepBoop()
     {
         yield return new WaitForSeconds(0.1f);
-        flagcheck["flag"] ="1";
-        socket.Emit("joinRoom", new JSONObject(flagcheck));
+        if (PlayerPrefs.GetInt("First", 0) == 0)
+        {
+            MatchingCheck.Instance.isMatching = true;
+            sid["sid"] = socket.sid;
+            socket.Emit("joinRoom", new JSONObject(sid));
+            firstEyes.SetActive(true);
+        }
     }
 }

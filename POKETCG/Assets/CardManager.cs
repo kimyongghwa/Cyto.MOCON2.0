@@ -182,6 +182,8 @@ public class CardManager : MonoBehaviour
     {
         if (isMulti)
         {
+            if (PlayerPrefs.GetInt("First") == 0)
+                PlayerPrefs.SetInt("First", 1);
             key["id"] = socket.sid;
             socket.Emit("leaveRoom", new JSONObject(key));
             Debug.Log("leaveRoom");
@@ -212,6 +214,8 @@ public class CardManager : MonoBehaviour
     {
         if (isMulti && !isMultiEneme) // 멀티일 경우 보내라.
         {
+            if (PlayerPrefs.GetInt("First") == 0)
+                CloseClick();
             Dictionary<string, string> MyCharacter = new Dictionary<string, string>();
             MyCharacter["number"] = PlayerPrefs.GetInt("PC").ToString();
             MyCharacter["key"] = keyidx.ToString();
@@ -221,6 +225,8 @@ public class CardManager : MonoBehaviour
         }
         if (!isAi && !isMultiEneme)
         {
+            if (PlayerPrefs.GetInt("First") == 0)
+                PlayerPrefs.SetInt("First", 1);
             Instantiate(skill[PlayerPrefs.GetInt("PC", 1)], canvas.transform);
             GameObject a =  Instantiate(pc[PlayerPrefs.GetInt("PC", 1)], battleScene.transform);
         }
