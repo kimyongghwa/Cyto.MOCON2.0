@@ -19,8 +19,9 @@ public class SocketManager : MonoBehaviour
 
     public void Start()
     {
+
         //if(Application.internetReachability != NetworkReachability.NotReachable) {
-            Instantiate(socketIO);
+        Instantiate(socketIO);
 
             GameObject go = GameObject.Find("SocketIO(Clone)");
             socket = go.GetComponent<SocketIOComponent>();
@@ -114,6 +115,7 @@ public class SocketManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         if (PlayerPrefs.GetInt("First", 0) == 0)
         {
+            Debug.Log("JoinRoom BeepBoop");
             MatchingCheck.Instance.isMatching = true;
             sid["sid"] = socket.sid;
             socket.Emit("joinRoom", new JSONObject(sid));

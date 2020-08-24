@@ -192,7 +192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: 0}
+  m_AnchoredPosition: {x: 40, y: 0}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &599851163864416300
@@ -451,8 +451,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 6130234498625573856, guid: 2cf64ae372b460840bb788a1c059141d,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -532,6 +533,7 @@ MonoBehaviour:
   guardAttack: 1
   thisImage: {fileID: 7738236508584440644}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  color2: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   enemeCard: 0
   cost: 0000000000000000000000000200000000000000
   damage: 0
@@ -1135,8 +1137,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 6130234498625573856, guid: 2cf64ae372b460840bb788a1c059141d,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1216,6 +1219,7 @@ MonoBehaviour:
   guardAttack: 0
   thisImage: {fileID: 1317034860108527802}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  color2: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   enemeCard: 0
   cost: 0000000003000000000000000000000000000000
   damage: 15
@@ -1359,8 +1363,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 6130234498625573856, guid: 2cf64ae372b460840bb788a1c059141d,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1440,6 +1445,7 @@ MonoBehaviour:
   guardAttack: 0
   thisImage: {fileID: 6497565253115757613}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  color2: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   enemeCard: 0
   cost: 0000000002000000000000000000000000000000
   damage: 10
@@ -1896,8 +1902,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 6130234498625573856, guid: 2cf64ae372b460840bb788a1c059141d,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1977,6 +1984,7 @@ MonoBehaviour:
   guardAttack: 0
   thisImage: {fileID: 2896014140196606892}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  color2: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   enemeCard: 0
   cost: 0000000001000000010000000000000000000000
   damage: 3
@@ -2544,7 +2552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28, y: 0}
+  m_AnchoredPosition: {x: 24, y: 0}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5517298719238410260
@@ -2966,8 +2974,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 6130234498625573856, guid: 2cf64ae372b460840bb788a1c059141d,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3047,6 +3056,7 @@ MonoBehaviour:
   guardAttack: 0
   thisImage: {fileID: 2910625438136238494}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  color2: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
   enemeCard: 0
   cost: 0000000000000000020000000000000000000000
   damage: 0

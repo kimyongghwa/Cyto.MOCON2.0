@@ -8,6 +8,7 @@ public class CardInfo : MonoBehaviour
     public bool guardAttack;
     public Image thisImage;
     public Color color;
+    public Color color2;
     public bool enemeCard;
     CardManager cm;
     CardManager csm; // socket 처리
@@ -54,8 +55,19 @@ public class CardInfo : MonoBehaviour
             damage= BattleManager.Instance.myInfo.guard;
         if (BattleManager.Instance.Card == this)
             thisImage.color = new Color(255, 0, 0, 255);
-        else
-            thisImage.color = color;
+        else if(!enemeCard)
+        {
+            for (int i = 1; i < 5; i++)
+            {
+                if (cost[i] > cm.CardNum[i])
+                {
+                    this.color = color;
+                    return;
+                }
+            }
+            thisImage.color = color2;
+        }
+
 
     }
 }

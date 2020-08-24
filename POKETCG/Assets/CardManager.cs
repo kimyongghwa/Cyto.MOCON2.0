@@ -215,7 +215,10 @@ public class CardManager : MonoBehaviour
         if (isMulti && !isMultiEneme) // 멀티일 경우 보내라.
         {
             if (PlayerPrefs.GetInt("First") == 0)
+            {
+                SceneManager.LoadScene(0);
                 CloseClick();
+            }
             Dictionary<string, string> MyCharacter = new Dictionary<string, string>();
             MyCharacter["number"] = PlayerPrefs.GetInt("PC").ToString();
             MyCharacter["key"] = keyidx.ToString();
