@@ -61,7 +61,7 @@ public class CardInfo : MonoBehaviour
             {
                 if (cost[i] > cm.CardNum[i])
                 {
-                    this.color = color;
+                    thisImage.color = color;
                     return;
                 }
             }

@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " \uC5F0\uC0AC\t"
+  m_Text: "  \uC5F0\uC0AC\t"
 --- !u!1 &795810031479425169
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,8 +380,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 6475619113382153458, guid: 065367ebee8bc1646bcee4c5f8b54292,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -461,6 +462,7 @@ MonoBehaviour:
   guardAttack: 0
   thisImage: {fileID: 8830110791017536292}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  color2: {r: 0, g: 0, b: 0, a: 0}
   enemeCard: 1
   cost: 0000000002000000000000000000000000000000
   damage: 10
@@ -605,8 +607,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 6475619113382153458, guid: 065367ebee8bc1646bcee4c5f8b54292,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -686,6 +689,7 @@ MonoBehaviour:
   guardAttack: 0
   thisImage: {fileID: 3667667243992377267}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  color2: {r: 0, g: 0, b: 0, a: 0}
   enemeCard: 1
   cost: 0000000001000000020000000000000000000000
   damage: 11
@@ -834,7 +838,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " \uC0AC\uACA9"
+  m_Text: "  \uC0AC\uACA9"
 --- !u!1 &2283533970014214850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,7 +1075,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " \uAD6C\uB974\uAE30"
+  m_Text: "  \uAD6C\uB974\uAE30"
 --- !u!1 &3086878373116194546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: 0}
+  m_AnchoredPosition: {x: 44, y: 0}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2950489577916014373
@@ -1291,7 +1295,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " \uC0C1\uCC98\t"
+  m_Text: "  \uC0C1\uCC98\t"
 --- !u!1 &3817553180782867855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,8 +1368,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 6475619113382153458, guid: 065367ebee8bc1646bcee4c5f8b54292,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1445,6 +1450,7 @@ MonoBehaviour:
   guardAttack: 0
   thisImage: {fileID: 5459095899746675789}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  color2: {r: 0, g: 0, b: 0, a: 0}
   enemeCard: 1
   cost: 0000000000000000000000000000000001000000
   damage: 4
@@ -2126,8 +2132,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 6475619113382153458, guid: 065367ebee8bc1646bcee4c5f8b54292,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2207,6 +2214,7 @@ MonoBehaviour:
   guardAttack: 0
   thisImage: {fileID: 632115544706834071}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  color2: {r: 0, g: 0, b: 0, a: 0}
   enemeCard: 1
   cost: 0000000000000000010000000100000000000000
   damage: 0
@@ -2388,7 +2396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: 0.0000047684}
+  m_AnchoredPosition: {x: 12, y: 0.0000047684}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6294810587941471603
@@ -2508,7 +2516,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " \uC800\uACA9\t"
+  m_Text: "  \uC800\uACA9\t"
 --- !u!1 &7051735351934097345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,8 +2666,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 6475619113382153458, guid: 065367ebee8bc1646bcee4c5f8b54292,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2739,6 +2748,7 @@ MonoBehaviour:
   guardAttack: 0
   thisImage: {fileID: 617435510649785509}
   color: {r: 0.31132078, g: 0.20412071, b: 0.20412071, a: 1}
+  color2: {r: 0, g: 0, b: 0, a: 0}
   enemeCard: 1
   cost: 0000000002000000000000000000000000000000
   damage: 12
