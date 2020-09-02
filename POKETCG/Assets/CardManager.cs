@@ -32,7 +32,7 @@ public class CardManager : MonoBehaviour
     public int[] CardNum = new int[5];
     public Animator[] animator = new Animator[4];
     public Image timerImage;
-    float tCount = 7f;
+    float tCount = 11f;
 
     private int keyidx; //room 번호를 서버로부터 받아서 저장할 변수
     Dictionary<string, string> key = new Dictionary<string, string>(); //key 딕셔너리
@@ -477,7 +477,7 @@ public class CardManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         tCount -= 0.1f;
-        timerImage.fillAmount =  tCount / 7.0f;
+        timerImage.fillAmount =  tCount / 11.0f;
         if(tCount <= 0)
             Click();
         StartCoroutine("TimerCoroutine");

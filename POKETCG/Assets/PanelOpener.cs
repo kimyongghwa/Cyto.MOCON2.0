@@ -22,4 +22,8 @@ public class PanelOpener : MonoBehaviour
         else if (tutorial && PlayerPrefs.GetInt("GM") == 1)
             panel.SetActive(!panel.activeSelf);
     }
+    public void OgClick()
+    {
+        panel.SetActive(!panel.activeSelf);
+    }
 }
