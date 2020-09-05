@@ -5156,6 +5156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   socketIO: {fileID: 100000, guid: 010d39cbd03ee4c99a746c1f8ecdc0d8, type: 3}
+  noInternetMatching: 0
   keyidx: 0
   firstEyes: {fileID: 2124846840}
   tx: {fileID: 689622376}
@@ -8109,6 +8110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b5c7eaa5d6fec4c925d4d89ae7ee21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleScene: 0
   equipWarrior: 5
   equipMage: 5
   equipArcher: 5
@@ -8129,6 +8131,24 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   archerGameObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ewarriorGameObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  emageGameObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  earcherGameObjects:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

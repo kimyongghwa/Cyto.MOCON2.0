@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class SocketManager : MonoBehaviour
 {
     public GameObject socketIO;
+    public bool noInternetMatching;
     public int keyidx;
     public GameObject firstEyes;
     Dictionary<string, string> key = new Dictionary<string, string>();
@@ -50,9 +51,12 @@ public class SocketManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("GM") == 1)
         {
-            MatchingCheck.Instance.isMatching = true;
-            sid["sid"] = socket.sid;
-            socket.Emit("joinRoom", new JSONObject(sid));
+            if (Application.internetReachability != NetworkReachability.NotReachable)
+            {
+                MatchingCheck.Instance.isMatching = true;
+                sid["sid"] = socket.sid;
+                socket.Emit("joinRoom", new JSONObject(sid));
+            }
         }
         else if(PlayerPrefs.GetInt("GM") == 0)
             SceneManager.LoadScene(2);
@@ -81,11 +85,10 @@ public class SocketManager : MonoBehaviour
     {
         CancleJoin();
     }
-
-
     public void Error(SocketIOEvent e)
     {
         Debug.Log("SocketIO Error received: " + e.name + "||" + e.data);
+        CancleJoin();
     }
     public void testRoom(SocketIOEvent e)
     {
@@ -95,6 +98,7 @@ public class SocketManager : MonoBehaviour
     public void Close(SocketIOEvent e)
     {
         key["id"] = socket.sid;
+        CancleJoin();
         socket.Emit("leaveRoom", new JSONObject(key));
         Debug.Log("SocketIO Close received: " + e.name + " " + e.data);
     }
@@ -113,6 +117,7 @@ public class SocketManager : MonoBehaviour
     IEnumerator BeepBoop()
     {
         yield return new WaitForSeconds(0.1f);
+        Debug.Log("BeepBoop");
         if (PlayerPrefs.GetInt("First", 0) == 0)
         {
             Debug.Log("JoinRoom BeepBoop");

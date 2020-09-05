@@ -135,8 +135,8 @@ io.on('connection', socket=>{
 
 	socket.on('MyCharacter',data=>{
 		keydata = data['key']
-		// console.log('-----------MyCharacter--------')
-		// console.log(data)
+		console.log('-----------MyCharacter--------')
+		console.log(data)
 		socket.broadcast.to(room[keydata]).emit('OpponentCharacter',data) 
 	})
 

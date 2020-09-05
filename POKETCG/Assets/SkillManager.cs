@@ -11,6 +11,7 @@ public class SkillManager : MonoBehaviour
             return instance;
         }
     }
+    public bool battleScene;
     public int equipWarrior;
     public int equipMage;
     public int equipArcher;
@@ -18,9 +19,13 @@ public class SkillManager : MonoBehaviour
     public GameObject[] warriorGameObjects = new GameObject[5];
     public GameObject[] mageGameObjects = new GameObject[5];
     public GameObject[] archerGameObjects = new GameObject[5];
+    public GameObject[] ewarriorGameObjects = new GameObject[5];
+    public GameObject[] emageGameObjects = new GameObject[5];
+    public GameObject[] earcherGameObjects = new GameObject[5];
     // Start is called before the first frame update
     void Start()
     {
+        if(!battleScene)
         for(int i =0; i<warriorGameObjects.Length; i++)
         {
 
@@ -47,8 +52,11 @@ public class SkillManager : MonoBehaviour
     }
     private void Update()
     {
-        chText[0].text = "전사 (" + PlayerPrefs.GetInt("WarriorEquipNum") + " / 5)";
-        chText[1].text = "마법사 (" + PlayerPrefs.GetInt("MageEquipNum") + " / 5)";
-        chText[2].text = "궁수 (" + PlayerPrefs.GetInt("ArcherEquipNum") + " / 5)";
+        if (!battleScene)
+        {
+            chText[0].text = "전사 (" + PlayerPrefs.GetInt("WarriorEquipNum") + " / 5)";
+            chText[1].text = "마법사 (" + PlayerPrefs.GetInt("MageEquipNum") + " / 5)";
+            chText[2].text = "궁수 (" + PlayerPrefs.GetInt("ArcherEquipNum") + " / 5)";
+        }
     }
 }

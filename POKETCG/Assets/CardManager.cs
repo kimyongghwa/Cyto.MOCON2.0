@@ -33,7 +33,7 @@ public class CardManager : MonoBehaviour
     public Animator[] animator = new Animator[4];
     public Image timerImage;
     float tCount = 11f;
-
+    public SkillManager skm;
     private int keyidx; //room 번호를 서버로부터 받아서 저장할 변수
     Dictionary<string, string> key = new Dictionary<string, string>(); //key 딕셔너리
 
@@ -75,7 +75,32 @@ public class CardManager : MonoBehaviour
                 Debug.Log((int)char.GetNumericValue(e.data[0].ToString()[1]));
                 int a = (int)char.GetNumericValue(e.data[0].ToString()[1]);
                 //상대 카드를 딕셔너리로 받아옴
+                
                 GameObject b = Instantiate(eneme[a], battleScene.transform);
+                switch (a)
+                {
+                    case 1:
+                        skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[1].ToString()[1])].SetActive(true);
+                        skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[2].ToString()[1])].SetActive(true);
+                        skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[3].ToString()[1])].SetActive(true);
+                        skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[4].ToString()[1])].SetActive(true);
+                        skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[5].ToString()[1])].SetActive(true);
+                        break;
+                    case 2:
+                        skm.emageGameObjects[(int)char.GetNumericValue(e.data[1].ToString()[1])].SetActive(true);
+                        skm.emageGameObjects[(int)char.GetNumericValue(e.data[2].ToString()[1])].SetActive(true);
+                        skm.emageGameObjects[(int)char.GetNumericValue(e.data[3].ToString()[1])].SetActive(true);
+                        skm.emageGameObjects[(int)char.GetNumericValue(e.data[4].ToString()[1])].SetActive(true);
+                        skm.emageGameObjects[(int)char.GetNumericValue(e.data[5].ToString()[1])].SetActive(true);
+                        break;
+                    case 3:
+                        skm.earcherGameObjects[(int)char.GetNumericValue(e.data[1].ToString()[1])].SetActive(true);
+                        skm.earcherGameObjects[(int)char.GetNumericValue(e.data[2].ToString()[1])].SetActive(true);
+                        skm.earcherGameObjects[(int)char.GetNumericValue(e.data[3].ToString()[1])].SetActive(true);
+                        skm.earcherGameObjects[(int)char.GetNumericValue(e.data[4].ToString()[1])].SetActive(true);
+                        skm.earcherGameObjects[(int)char.GetNumericValue(e.data[5].ToString()[1])].SetActive(true);
+                        break;
+                }
                 Instantiate(eskill[a], canvas.transform);
                 BattleManager.Instance.otherInfo = b.GetComponent<PlayerInfo>();
             }
@@ -221,6 +246,10 @@ public class CardManager : MonoBehaviour
             }
             Dictionary<string, string> MyCharacter = new Dictionary<string, string>();
             MyCharacter["number"] = PlayerPrefs.GetInt("PC").ToString();
+            for(int i=0; i < 5; i++)
+            {
+                MyCharacter["skill" + i] = PlayerPrefs.GetInt("myWarriorSkill"+i).ToString();
+            }
             MyCharacter["key"] = keyidx.ToString();
             socket.Emit("MyCharacter", new JSONObject(MyCharacter));
             StartCoroutine("TimerCoroutine");
@@ -230,6 +259,30 @@ public class CardManager : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("First") == 0)
                 PlayerPrefs.SetInt("First", 1);
+            switch(PlayerPrefs.GetInt("PC", 1))
+            {
+                case 1:
+                    skm.warriorGameObjects[PlayerPrefs.GetInt("myWarriorSkill0", 1)].SetActive(true);
+                    skm.warriorGameObjects[PlayerPrefs.GetInt("myWarriorSkill1", 2)].SetActive(true);
+                    skm.warriorGameObjects[PlayerPrefs.GetInt("myWarriorSkill2", 3)].SetActive(true);
+                    skm.warriorGameObjects[PlayerPrefs.GetInt("myWarriorSkill3", 4)].SetActive(true);
+                    skm.warriorGameObjects[PlayerPrefs.GetInt("myWarriorSkill4", 5)].SetActive(true);
+                    break;
+                case 2:
+                    skm.mageGameObjects[PlayerPrefs.GetInt("myMageSkill0", 1)].SetActive(true);
+                    skm.mageGameObjects[PlayerPrefs.GetInt("myMageSkill1", 2)].SetActive(true);
+                    skm.mageGameObjects[PlayerPrefs.GetInt("myMageSkill2", 3)].SetActive(true);
+                    skm.mageGameObjects[PlayerPrefs.GetInt("myMageSkill3", 4)].SetActive(true);
+                    skm.mageGameObjects[PlayerPrefs.GetInt("myMageSkill4", 5)].SetActive(true);
+                    break;
+                case 3:
+                    skm.mageGameObjects[PlayerPrefs.GetInt("myArcherSkill0", 1)].SetActive(true);
+                    skm.mageGameObjects[PlayerPrefs.GetInt("myArcherSkill1", 2)].SetActive(true);
+                    skm.mageGameObjects[PlayerPrefs.GetInt("myArcherSkill2", 3)].SetActive(true);
+                    skm.mageGameObjects[PlayerPrefs.GetInt("myArcherSkill3", 4)].SetActive(true);
+                    skm.mageGameObjects[PlayerPrefs.GetInt("myArcherSkill4", 5)].SetActive(true);
+                    break;
+            }
             Instantiate(skill[PlayerPrefs.GetInt("PC", 1)], canvas.transform);
             GameObject a =  Instantiate(pc[PlayerPrefs.GetInt("PC", 1)], battleScene.transform);
         }
