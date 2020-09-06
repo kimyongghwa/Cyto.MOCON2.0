@@ -75,7 +75,7 @@ io.on('connection', socket=>{
 			CK[keydata]-=2
 			playing[keydata]=0
 			console.log(CK[key])
-
+			
 		});
 	});
 
@@ -87,6 +87,7 @@ io.on('connection', socket=>{
 			console.log(id+' leave ' + room[keydata]);
 			CK[keydata]-=1
 			playing[keydata]=0
+			console.log(CK[keydata])
 		});
 	})
 
@@ -103,6 +104,7 @@ io.on('connection', socket=>{
 		socket.leave(room[keydata], () => {
 			console.log(' cancel ' + room[keydata]);
 			CK[keydata]-=1
+			console.log(CK[keydata])
 		});
 	});
 

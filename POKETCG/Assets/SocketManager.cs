@@ -20,7 +20,7 @@ public class SocketManager : MonoBehaviour
 
     public void Start()
     {
-
+        PlayerPrefs.SetInt("First", 0);
         //if(Application.internetReachability != NetworkReachability.NotReachable) {
         Instantiate(socketIO);
 
@@ -116,8 +116,9 @@ public class SocketManager : MonoBehaviour
     }
     IEnumerator BeepBoop()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.01f);
         Debug.Log("BeepBoop");
+        Debug.Log(PlayerPrefs.GetInt("First"));
         if (PlayerPrefs.GetInt("First", 0) == 0)
         {
             Debug.Log("JoinRoom BeepBoop");
