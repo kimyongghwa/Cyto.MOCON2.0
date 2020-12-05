@@ -20,7 +20,6 @@ public class SocketManager : MonoBehaviour
 
     public void Start()
     {
-        PlayerPrefs.SetInt("First", 0);
         //if(Application.internetReachability != NetworkReachability.NotReachable) {
         Instantiate(socketIO);
 

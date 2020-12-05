@@ -259,6 +259,7 @@ public class CardManager : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("First") == 0)
                 PlayerPrefs.SetInt("First", 1);
+            Debug.Log(PlayerPrefs.GetInt("PC", 1));
             switch(PlayerPrefs.GetInt("PC", 1))
             {
                 case 1:
@@ -276,14 +277,14 @@ public class CardManager : MonoBehaviour
                     skm.mageGameObjects[PlayerPrefs.GetInt("myMageSkill4", 5)].SetActive(true);
                     break;
                 case 3:
-                    skm.mageGameObjects[PlayerPrefs.GetInt("myArcherSkill0", 1)].SetActive(true);
-                    skm.mageGameObjects[PlayerPrefs.GetInt("myArcherSkill1", 2)].SetActive(true);
-                    skm.mageGameObjects[PlayerPrefs.GetInt("myArcherSkill2", 3)].SetActive(true);
-                    skm.mageGameObjects[PlayerPrefs.GetInt("myArcherSkill3", 4)].SetActive(true);
-                    skm.mageGameObjects[PlayerPrefs.GetInt("myArcherSkill4", 5)].SetActive(true);
+                    skm.archerGameObjects[PlayerPrefs.GetInt("myArcherSkill0", 1)].SetActive(true);
+                    skm.archerGameObjects[PlayerPrefs.GetInt("myArcherSkill1", 2)].SetActive(true);
+                    skm.archerGameObjects[PlayerPrefs.GetInt("myArcherSkill2", 3)].SetActive(true);
+                    skm.archerGameObjects[PlayerPrefs.GetInt("myArcherSkill3", 4)].SetActive(true);
+                    skm.archerGameObjects[PlayerPrefs.GetInt("myArcherSkill4", 5)].SetActive(true);
                     break;
             }
-            Instantiate(skill[PlayerPrefs.GetInt("PC", 1)], canvas.transform);
+            //Instantiate(skill[PlayerPrefs.GetInt("PC", 1)], canvas.transform);
             GameObject a =  Instantiate(pc[PlayerPrefs.GetInt("PC", 1)], battleScene.transform);
         }
         if(!isMulti)
