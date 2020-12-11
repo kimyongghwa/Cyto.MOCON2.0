@@ -80,11 +80,15 @@ public class CardManager : MonoBehaviour
                 switch (a)
                 {
                     case 1:
-                        skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[1].ToString()[1])].SetActive(true);
+                        for(int i =1; i<6; i++)
+                        {
+                            skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[i].ToString()[1])].SetActive(true);
+                        }
+                        /*skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[1].ToString()[1])].SetActive(true); 
                         skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[2].ToString()[1])].SetActive(true);
                         skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[3].ToString()[1])].SetActive(true);
                         skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[4].ToString()[1])].SetActive(true);
-                        skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[5].ToString()[1])].SetActive(true);
+                        skm.ewarriorGameObjects[(int)char.GetNumericValue(e.data[5].ToString()[1])].SetActive(true);*/
                         break;
                     case 2:
                         skm.emageGameObjects[(int)char.GetNumericValue(e.data[1].ToString()[1])].SetActive(true);
@@ -131,39 +135,12 @@ public class CardManager : MonoBehaviour
             }
         });
 
-
         socket.On("error", Error);
         socket.On("close", Close);
         socket.On("OpponentLeft", OpponentLeft);
         socket.On("StartRoop", StartRoop);
-
-
-        //StartCoroutine("BeepBoop");
     }
 
-    //private IEnumerator BeepBoop()
-    //{
-    //    // wait 1 seconds and continue
-    //    yield return new WaitForSeconds(1);
-
-    //    socket.Emit("beep");
-
-    //    // wait 3 seconds and continue
-    //    yield return new WaitForSeconds(3);
-
-    //    socket.Emit("beep");
-
-    //    // wait 2 seconds and continue
-    //    yield return new WaitForSeconds(2);
-
-    //    socket.Emit("beep");
-
-    //    // wait ONE FRAME and continue
-    //    yield return null;
-
-    //    socket.Emit("beep");
-    //    socket.Emit("beep");
-    //}
 
     public void joinRoom(SocketIOEvent e)
     {
@@ -263,6 +240,10 @@ public class CardManager : MonoBehaviour
             switch(PlayerPrefs.GetInt("PC", 1))
             {
                 case 1:
+                    for (int i = 1; i < 6; i++)
+                    {
+                        skm.warriorGameObjects[PlayerPrefs.GetInt("myWarriorSkill"+(i-1), i)].SetActive(true);
+                    }
                     skm.warriorGameObjects[PlayerPrefs.GetInt("myWarriorSkill0", 1)].SetActive(true);
                     skm.warriorGameObjects[PlayerPrefs.GetInt("myWarriorSkill1", 2)].SetActive(true);
                     skm.warriorGameObjects[PlayerPrefs.GetInt("myWarriorSkill2", 3)].SetActive(true);
@@ -491,7 +472,7 @@ public class CardManager : MonoBehaviour
             Debug.Log("leaveRoom");
         }
     }
-    IEnumerator RerollCoroutine(int num)
+    IEnumerator RerollCoroutine(int num) //반복문쓰자
     {
         yield return new WaitForSeconds(0.015f);
         animator[num].gameObject.transform.localRotation = Quaternion.Euler(0, 30, 0);
