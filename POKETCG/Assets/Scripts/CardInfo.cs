@@ -53,7 +53,6 @@ public class CardInfo : MonoBehaviour
                         {
                             PlayerPrefs.SetInt("myWarriorSkill" + i, 0);
                             PlayerPrefs.SetInt("WarriorEquipNum", PlayerPrefs.GetInt("WarriorEquipNum", 5)-1);
-                            Debug.Log(PlayerPrefs.GetInt("WarriorEquipNum" ));
                             thisImage.color = color;
                             return;
                         }
@@ -64,7 +63,6 @@ public class CardInfo : MonoBehaviour
                         {
                             PlayerPrefs.SetInt("myWarriorSkill" + i, cardNum);
                             PlayerPrefs.SetInt("WarriorEquipNum", PlayerPrefs.GetInt("WarriorEquipNum", 5) + 1);
-                            Debug.Log(PlayerPrefs.GetInt("WarriorEquipNum"));
                             break;
                         }
                     }
@@ -77,7 +75,6 @@ public class CardInfo : MonoBehaviour
                         {
                             PlayerPrefs.SetInt("myMageSkill" + i, 0);
                             PlayerPrefs.SetInt("MageEquipNum", PlayerPrefs.GetInt("MageEquipNum", 5) - 1);
-                            Debug.Log(PlayerPrefs.GetInt("MageEquipNum"));
                             thisImage.color = color;
                             return;
                         }
@@ -88,7 +85,6 @@ public class CardInfo : MonoBehaviour
                         {
                             PlayerPrefs.SetInt("myMageSkill" + i, cardNum);
                             PlayerPrefs.SetInt("MageEquipNum", PlayerPrefs.GetInt("MageEquipNum", 5) + 1);
-                            Debug.Log(PlayerPrefs.GetInt("MageEquipNum"));
                             break;
                         }
                     }
@@ -161,8 +157,7 @@ public class CardInfo : MonoBehaviour
                 case 1:
                     for (int i = 0; i < 5; i++)
                     {
-                        if (PlayerPrefs.GetInt("myWarriorSkill" + i) == cardNum)
-                        {
+                        if (PlayerPrefs.GetInt("myWarriorSkill" + i) == cardNum){
                             thisImage.color = new Color(255, 0, 0, 255);
                             break;
                         }
